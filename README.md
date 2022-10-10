@@ -5,3 +5,4 @@ Trabalho da disciplina de Bancos de Dados I, destinado a implementar um banco de
 
 * Postgres 14.5-1
 * Jakarta EE 10.0
+* NetBeans IDE 15
