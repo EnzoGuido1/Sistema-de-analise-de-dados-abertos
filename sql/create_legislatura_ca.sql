@@ -1,5 +1,4 @@
 CREATE TABLE legislatura_ca(
-    num INTEGER PRIMARY KEY,
-    id VARCHAR(12) NOT NULL,
+    num INTEGER PRIMARY KEY SERIAL,
     CONSTRAINT fk_id FOREIGN KEY (id) REFERENCES legislatura(id)
 );
