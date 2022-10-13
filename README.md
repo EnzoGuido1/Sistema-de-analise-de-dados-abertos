@@ -12,7 +12,11 @@ Legislatura: dados de um mandato de um político <br />
 Votação: dados de uma votação (projeto de lei) proposta por um deputado federal
 
 ## Tecnologias utilizadas
-
 * Postgres 14.5-1
 * Jakarta EE 10.0
 * NetBeans IDE 15
+
+## Sites utilizados para consulta
+https://dadosabertos.camara.leg.br/swagger/api.html#staticfile <br />
+https://www12.senado.leg.br/transparencia/dados-abertos-transparencia/dados-abertos-ceaps <br />
+https://sig.tse.jus.br/ords/dwapr/seai/r/sig-eleicao-resultados/resultado-consolidado <br />
