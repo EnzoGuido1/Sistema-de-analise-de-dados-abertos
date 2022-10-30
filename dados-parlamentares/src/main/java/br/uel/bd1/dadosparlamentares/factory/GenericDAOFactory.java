@@ -1,18 +1,20 @@
 package br.uel.bd1.dadosparlamentares.factory;
 
+import br.uel.bd1.dadosparlamentares.dao.PoliticoDAO;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public abstract class DAOFactory implements AutoCloseable {
+public abstract class GenericDAOFactory implements AutoCloseable {
     protected Connection connection;
 
-    public static DAOFactory getInstance()
+    public static GenericDAOFactory getInstance()
             throws ClassNotFoundException, IOException, SQLException {
-        Connection connection = ConnectionFactory.getInstance().getConnection();
-        DAOFactory factory;
+        Connection connection = GenericConnectionFactory.getInstance().getConnection();
+        GenericDAOFactory factory;
 
-        if(ConnectionFactory.getServer().equals("postgresql")) {
+        if(GenericConnectionFactory.getServer().equals("postgresql")) {
             factory = new PgDAOFactory(connection);
         }
         else {
@@ -76,5 +78,5 @@ public abstract class DAOFactory implements AutoCloseable {
         closeConnection();
     }
 
-    /* DAOs criados vão aqui */
+    public abstract PoliticoDAO getPoliticoDAO();
 }

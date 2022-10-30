@@ -7,10 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class PgConnectionFactory extends ConnectionFactory {
+public class PgConnectionFactory extends GenericConnectionFactory {
     private String host,
                    port,
-                   name,
+                   database,
                    user,
                    password;
 
@@ -25,7 +25,7 @@ public class PgConnectionFactory extends ConnectionFactory {
 
             host = properties.getProperty("host");
             port = properties.getProperty("port");
-            name = properties.getProperty("name");
+            database = properties.getProperty("database");
             user = properties.getProperty("user");
             password = properties.getProperty("password");
         }
@@ -39,10 +39,16 @@ public class PgConnectionFactory extends ConnectionFactory {
     public Connection getConnection() throws IOException, SQLException, ClassNotFoundException {
         Connection connection = null;
 
+        host = "127.0.0.1";
+        port = "5432";
+        database = "trabalho_bd1";
+        user = "postgres";
+        password = "pg12345";
+
         try {
             Class.forName("org.postgresql.Driver");
-            readProperties();
-            String url = "jdbc:postgresql://" + host + ":" + port + "/" + name;
+//            readProperties();
+            String url = "jdbc:postgresql://" + host + ":" + port + "/" + database;
 
             connection = DriverManager.getConnection(url, user, password);
         }
