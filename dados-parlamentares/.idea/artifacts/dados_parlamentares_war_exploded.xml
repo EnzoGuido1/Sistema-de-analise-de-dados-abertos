@@ -14,11 +14,9 @@
           <element id="module-output" name="dados-parlamentares" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.primefaces:primefaces:12.0.0" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:jakarta:12.0.0" />
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.5.0" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />
-          <element id="library" level="project" name="Maven: jakarta.platform:jakarta.jakartaee-api:9.1.0" />
-          <element id="library" level="project" name="Maven: jakarta.platform:jakarta.jakartaee-web-api:9.1.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

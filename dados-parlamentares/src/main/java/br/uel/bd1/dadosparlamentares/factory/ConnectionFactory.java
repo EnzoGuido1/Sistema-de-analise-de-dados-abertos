@@ -1,4 +1,4 @@
-package br.uel.bd1.sistemadadosparlamentares.factory;
+package br.uel.bd1.dadosparlamentares.factory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,19 +15,19 @@ public abstract class ConnectionFactory {
     protected ConnectionFactory() {}
 
     public static ConnectionFactory getInstance() throws IOException {
-        if (instance == null) {
+        if(instance == null) {
             Properties properties = new Properties();
             try {
                 InputStream input = ConnectionFactory.class.getClassLoader().getResourceAsStream(propertiesPath);
                 properties.load(input);
                 server = properties.getProperty("server");
             }
-            catch (IOException ex) {
+            catch(IOException ex) {
                 System.err.println(ex.getMessage());
 
                 throw new IOException("Erro ao obter informações do banco de dados.");
             }
-            if (getServer().equals("postgresql")) {
+            if(getServer().equals("postgresql")) {
                 instance = new PgConnectionFactory();
             }
             else {
@@ -41,5 +41,6 @@ public abstract class ConnectionFactory {
         return server;
     }
 
-    public abstract Connection getConnection() throws IOException, SQLException, ClassNotFoundException;
+    public abstract Connection getConnection()
+            throws IOException, SQLException, ClassNotFoundException;
 }

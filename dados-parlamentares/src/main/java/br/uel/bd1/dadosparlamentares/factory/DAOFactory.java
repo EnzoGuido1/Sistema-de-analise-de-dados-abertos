@@ -1,4 +1,4 @@
-package br.uel.bd1.sistemadadosparlamentares.factory;
+package br.uel.bd1.dadosparlamentares.factory;
 
 import java.io.IOException;
 import java.sql.Connection;
