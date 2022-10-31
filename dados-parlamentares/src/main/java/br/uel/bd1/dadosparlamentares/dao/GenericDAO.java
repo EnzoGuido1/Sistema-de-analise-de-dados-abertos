@@ -23,4 +23,5 @@ public abstract class GenericDAO<T, K> {
     public abstract void insert(T t)                         throws SQLException;
     public abstract void update(T t)                         throws SQLException;
     public abstract void delete(T t)                         throws SQLException;
+    public abstract void closeConnection()                   throws SQLException;
 }

@@ -37,7 +37,7 @@ public class PoliticoDAOTest {
         Politico p = new Politico();
         p.setCpf(22233344456L);
         p.setNome("KORCA");
-        p.setSobrenome("queimador de rosca");
+        p.setSobrenome("lalalala");
         p.setSigla("based");
 
         politicoDao.insert(p);
@@ -50,8 +50,8 @@ public class PoliticoDAOTest {
         Politico p = new Politico();
         p.setCpf(22233344455L);
         p.setNome("José");
-        p.setSobrenome("Tora Grossa");
-        p.setSigla("PENIS");
+        p.setSobrenome("da Silva");
+        p.setSigla("PT");
 
         politicoDao.update(p);
     }
@@ -63,8 +63,8 @@ public class PoliticoDAOTest {
         Politico p = new Politico();
         p.setCpf(22233344455L);
         p.setNome("José");
-        p.setSobrenome("Tora Grossa");
-        p.setSigla("CUZIL");
+        p.setSobrenome("da Silva");
+        p.setSigla("PSDB");
 
         politicoDao.delete(p);
     }

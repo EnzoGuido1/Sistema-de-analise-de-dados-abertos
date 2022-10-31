@@ -14,8 +14,9 @@ public abstract class GenericBusiness<T> {
     protected GenericDAO<T, ?> dao;
     private Class<T> beanClass;
 
-    public GenericBusiness(GenericDAO<T, ?> dao) {
+    public GenericBusiness(GenericDAO<T, ?> dao, Class<T> t) {
         this.dao = dao;
+        this.beanClass = t;
     }
 
     public void insertFromCsv(String filename) {

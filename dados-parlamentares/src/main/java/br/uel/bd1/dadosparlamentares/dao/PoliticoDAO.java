@@ -38,14 +38,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         catch(SQLException e) {
             throw new RuntimeException(e);
         }
-        finally {
-            try {
-                connection.close();
-            }
-            catch(SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
+
         return entities;
     }
     @Override
@@ -73,14 +66,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         catch(SQLException e) {
             throw new RuntimeException(e);
         }
-        finally {
-            try {
-                connection.close();
-            }
-            catch(SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
+
         return p;
     }
     @Override
@@ -100,14 +86,6 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         catch(SQLException e) {
             throw new RuntimeException(e);
         }
-        finally {
-            try {
-                connection.close();
-            }
-            catch(SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
     @Override
     public void update(Politico p) {
@@ -126,14 +104,6 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         catch(SQLException e) {
             throw new RuntimeException(e);
         }
-        finally {
-            try {
-                connection.close();
-            }
-            catch(SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
     @Override
     public void delete(Politico p) {
@@ -149,13 +119,14 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         catch(SQLException e) {
             throw new RuntimeException(e);
         }
-        finally {
-            try {
-                connection.close();
-            }
-            catch(SQLException e) {
-                throw new RuntimeException(e);
-            }
+    }
+    @Override
+    public void closeConnection() {
+        try {
+            connection.close();
+        }
+        catch(SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
