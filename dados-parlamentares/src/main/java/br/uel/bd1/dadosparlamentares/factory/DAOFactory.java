@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public abstract class GenericDAOFactory implements AutoCloseable {
+public abstract class DAOFactory implements AutoCloseable {
     protected Connection connection;
 
-    public static GenericDAOFactory getInstance()
+    public static DAOFactory getInstance()
             throws ClassNotFoundException, IOException, SQLException {
         Connection connection = GenericConnectionFactory.getInstance().getConnection();
-        GenericDAOFactory factory;
+        DAOFactory factory;
 
         if(GenericConnectionFactory.getServer().equals("postgresql")) {
             factory = new PgDAOFactory(connection);

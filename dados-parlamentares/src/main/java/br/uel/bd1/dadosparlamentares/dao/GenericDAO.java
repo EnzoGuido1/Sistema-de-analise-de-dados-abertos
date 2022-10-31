@@ -9,9 +9,9 @@ import java.util.List;
 public abstract class GenericDAO<T, K> {
     protected Connection connection;
 
-    public GenericDAO() {
+    public GenericDAO(Connection connection) {
         try {
-            this.connection = GenericConnectionFactory.getInstance().getConnection();
+            this.connection = connection;
         }
         catch(Exception e) {
             throw new RuntimeException(e);

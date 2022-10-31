@@ -8,7 +8,7 @@ public abstract class GenericConnectionFactory {
 
     private static GenericConnectionFactory instance = null;
     protected static String propertiesPath = "../../main/webapp/conf/jdbc.properties";
-    private static String server;
+    private static String server = "postgresql";
 
     protected GenericConnectionFactory() {}
 

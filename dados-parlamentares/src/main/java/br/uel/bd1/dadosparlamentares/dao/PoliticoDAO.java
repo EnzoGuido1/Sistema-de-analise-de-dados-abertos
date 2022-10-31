@@ -1,5 +1,6 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +11,8 @@ import java.lang.String;
 import br.uel.bd1.dadosparlamentares.model.Politico;
 
 public class PoliticoDAO extends GenericDAO<Politico, Long> {
-    public PoliticoDAO() {
-        super();
+    public PoliticoDAO(Connection connection) {
+        super(connection);
     }
     @Override
     public List<Politico> selectAll() throws SQLException {

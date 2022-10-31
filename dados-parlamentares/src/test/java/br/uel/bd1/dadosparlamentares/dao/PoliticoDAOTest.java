@@ -1,5 +1,6 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
+import br.uel.bd1.dadosparlamentares.factory.DAOFactory;
 import br.uel.bd1.dadosparlamentares.factory.PgConnectionFactory;
 import br.uel.bd1.dadosparlamentares.factory.PgDAOFactory;
 import br.uel.bd1.dadosparlamentares.model.Politico;
@@ -12,9 +13,7 @@ import java.util.List;
 public class PoliticoDAOTest {
     @Test
     public void selectAll() throws SQLException, IOException, ClassNotFoundException {
-        PgConnectionFactory connectFactory = (PgConnectionFactory) PgConnectionFactory.getInstance();
-        PgDAOFactory daoFactory = new PgDAOFactory(connectFactory.getConnection());
-        PoliticoDAO politicoDao = daoFactory.getPoliticoDAO();
+        PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
 
         List<Politico> result = politicoDao.selectAll();
         Assertions.assertNotNull(result);
@@ -22,18 +21,14 @@ public class PoliticoDAOTest {
     }
     @Test
     public void selectByPrimaryKey() throws SQLException, IOException, ClassNotFoundException {
-        PgConnectionFactory connectFactory = (PgConnectionFactory) PgConnectionFactory.getInstance();
-        PgDAOFactory daoFactory = new PgDAOFactory(connectFactory.getConnection());
-        PoliticoDAO politicoDao = daoFactory.getPoliticoDAO();
+        PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
 
         Politico result = politicoDao.selectByPrimaryKey(12345678912L);
         Assertions.assertNotNull(result);
     }
     @Test
     public void insert() throws SQLException, IOException, ClassNotFoundException {
-        PgConnectionFactory connectFactory = (PgConnectionFactory) PgConnectionFactory.getInstance();
-        PgDAOFactory daoFactory = new PgDAOFactory(connectFactory.getConnection());
-        PoliticoDAO politicoDao = daoFactory.getPoliticoDAO();
+        PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
         Politico p = new Politico();
         p.setCpf(22233344456L);
         p.setNome("KORCA");
@@ -44,9 +39,7 @@ public class PoliticoDAOTest {
     }
     @Test
     public void update() throws SQLException, IOException, ClassNotFoundException {
-        PgConnectionFactory connectFactory = (PgConnectionFactory) PgConnectionFactory.getInstance();
-        PgDAOFactory daoFactory = new PgDAOFactory(connectFactory.getConnection());
-        PoliticoDAO politicoDao = daoFactory.getPoliticoDAO();
+        PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
         Politico p = new Politico();
         p.setCpf(22233344455L);
         p.setNome("José");
@@ -57,9 +50,7 @@ public class PoliticoDAOTest {
     }
     @Test
     public void delete() throws SQLException, IOException, ClassNotFoundException {
-        PgConnectionFactory connectFactory = (PgConnectionFactory) PgConnectionFactory.getInstance();
-        PgDAOFactory daoFactory = new PgDAOFactory(connectFactory.getConnection());
-        PoliticoDAO politicoDao = daoFactory.getPoliticoDAO();
+        PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
         Politico p = new Politico();
         p.setCpf(22233344455L);
         p.setNome("José");
