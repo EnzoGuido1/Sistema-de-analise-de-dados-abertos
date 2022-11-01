@@ -1,34 +1,34 @@
 package br.uel.bd1.dadosparlamentares.model;
 
-import jakarta.inject.Named;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Named
 @RequestScoped
-public class Bloco {
+public class DespesaPartido {
     @NotNull
-    private Long id,
-                 num_leg;
+    private Long for_cpf_cnpj,
+                 documento;
     @NotNull
     @Size(max=6)
     private String par_sigla;
 
-    public Long getId() {
-        return id;
+    public Long getFor_cpf_cnpj() {
+        return for_cpf_cnpj;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setFor_cpf_cnpj(Long for_cpf_cnpj) {
+        this.for_cpf_cnpj = for_cpf_cnpj;
     }
 
-    public Long getNum_leg() {
-        return num_leg;
+    public Long getDocumento() {
+        return documento;
     }
 
-    public void setNum_leg(Long num_leg) {
-        this.num_leg = num_leg;
+    public void setDocumento(Long documento) {
+        this.documento = documento;
     }
 
     public String getPar_sigla() {

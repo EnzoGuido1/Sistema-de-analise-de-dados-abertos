@@ -1,12 +1,10 @@
 package br.uel.bd1.dadosparlamentares.business;
 
 import br.uel.bd1.dadosparlamentares.dao.GenericDAO;
-import br.uel.bd1.dadosparlamentares.model.Politico;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
-
 import java.io.FileReader;
 
 public abstract class GenericBusiness<T> {

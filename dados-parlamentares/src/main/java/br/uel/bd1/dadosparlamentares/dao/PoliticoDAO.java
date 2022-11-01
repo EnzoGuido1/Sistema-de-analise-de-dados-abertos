@@ -90,14 +90,14 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
     }
     @Override
     public void update(Politico p) {
-        String query = "UPDATE politico SET cpf = ?, nome = ?, snome = ?, par_sigla = ?";
+        String query = "UPDATE politico SET nome = ?, snome = ?, par_sigla = ? WHERE cpf = ?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(query);
-            ps.setLong(1, p.getCpf());
-            ps.setString(2, p.getNome());
-            ps.setString(3, p.getSobrenome());
-            ps.setString(4, p.getSigla());
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getSobrenome());
+            ps.setString(3, p.getSigla());
+            ps.setLong(4, p.getCpf());
 
             ps.execute();
             ps.close();
