@@ -1,4 +1,4 @@
-package br.uel.bd1.dadosparlamentares.business;
+package br.uel.bd1.dadosparlamentares.util;
 
 public class CombinedKey<T, K>{
     private final T first;

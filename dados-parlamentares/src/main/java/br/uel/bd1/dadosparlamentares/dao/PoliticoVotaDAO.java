@@ -1,7 +1,6 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
-import br.uel.bd1.dadosparlamentares.business.CombinedKey;
-import br.uel.bd1.dadosparlamentares.model.PoliticoPropoe;
+import br.uel.bd1.dadosparlamentares.util.CombinedKey;
 import br.uel.bd1.dadosparlamentares.model.PoliticoVota;
 
 import java.sql.Connection;
