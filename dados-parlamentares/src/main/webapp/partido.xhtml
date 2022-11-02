@@ -10,18 +10,22 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Partidos" value="#{partidoController.queryBuf}" var="bloco" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
-      <p:column headerText="sigla">
-         #{partido.sigla}
+   <p:growl id="messages" showDetail="true"/>
+   <p:commandButton value="Upload CSV" action="upload.xhtml"/>
+   <p:dataTable title="Partidos" value="#{partidoController.queryBuf}" var="partido"
+                paginator="true" rows="50"
+                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+      <p:column headerText="Sigla">
+         <p:outputLabel id="sigla" value="#{partido.sigla}"></p:outputLabel>
       </p:column>
-      <p:column headerText="nome">
-         #{partido.nome}
+      <p:column headerText="Nome">
+         <p:outputLabel id="nome" value="#{partido.nome}"></p:outputLabel>
       </p:column>
-      <p:column headerText="número">
-         #{partido.numero}
+      <p:column headerText="Número">
+         <p:outputLabel id="num" value="#{partido.num}"></p:outputLabel>
       </p:column>
-      <p:column headerText="cnpj">
-         #{partido.cnpj}
+      <p:column headerText="CNPJ">
+         <p:outputLabel id="cnpj" value="#{partido.cnpj}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>
