@@ -1,6 +1,6 @@
 package br.uel.bd1.dadosparlamentares.factory;
 
-import br.uel.bd1.dadosparlamentares.dao.PoliticoDAO;
+import br.uel.bd1.dadosparlamentares.dao.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -78,5 +78,21 @@ public abstract class DAOFactory implements AutoCloseable {
         closeConnection();
     }
 
+    public abstract BlocoDAO getBlocoDAO();
+    public abstract DeputadoDAO getDeputadoDAO();
+    public abstract DespesaDAO getDespesaDAO();
+    public abstract DespesaPartidoDAO getDespesaPartidoDAO();
+    public abstract DespesaPoliticoDAO getDespesaPoliticoDAO();
+    public abstract FornecedorDAO getFornecedorDAO();
+    public abstract LegislaturaDAO getLegislaturaDAO();
+    public abstract LegislaturaCamaraDAO getLegislaturaCamaraDAO();
+    public abstract LegislaturaSenadoDAO getLegislaturaSenadoDAO();
+    public abstract PartidoDAO getPartidoDAO();
+
     public abstract PoliticoDAO getPoliticoDAO();
+    public abstract PoliticoPropoeDAO getPoliticoPropoeDAO();
+    public abstract PoliticoVotaDAO getPoliticoVotaDAO();
+    public abstract ProposicaoDAO getProposicaoDAO();
+    public abstract SenadorDAO getSenadorDAO();
+    public abstract VotacaoDAO getVotacaoDAO();
 }
