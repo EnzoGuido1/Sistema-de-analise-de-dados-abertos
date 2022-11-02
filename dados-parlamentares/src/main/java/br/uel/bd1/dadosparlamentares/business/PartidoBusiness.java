@@ -1,14 +1,15 @@
 package br.uel.bd1.dadosparlamentares.business;
 
 import br.uel.bd1.dadosparlamentares.dao.GenericDAO;
+import br.uel.bd1.dadosparlamentares.model.Partido;
 import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.ParseLong;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.cellprocessor.Optional;
 
-public class PartidoBusiness {
-    public PartidoBusiness(GenericDAO<PartidoBusiness, ?> dao, Class<PartidoBusiness> t) {
+public class PartidoBusiness extends GenericBusiness<Partido> {
+    public PartidoBusiness(GenericDAO<Partido, ?> dao, Class<Partido> t) {
         super(dao, t);
     }
     @Override
@@ -22,5 +23,4 @@ public class PartidoBusiness {
 
         return processors;
     }
-}
 }

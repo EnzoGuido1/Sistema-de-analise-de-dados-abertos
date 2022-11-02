@@ -1,6 +1,7 @@
 package br.uel.bd1.dadosparlamentares.business;
 
 import br.uel.bd1.dadosparlamentares.dao.GenericDAO;
+import br.uel.bd1.dadosparlamentares.model.Votacao;
 import org.supercsv.cellprocessor.ParseBool;
 import org.supercsv.cellprocessor.ParseDate;
 import org.supercsv.cellprocessor.ParseInt;
@@ -8,8 +9,8 @@ import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.cellprocessor.Optional;
 
-public class VotacaoBusiness {
-    public VotacaoBusiness(GenericDAO<VotacaoBusiness, ?> dao, Class<VotacaoBusiness> t) {
+public class VotacaoBusiness extends GenericBusiness<Votacao> {
+    public VotacaoBusiness(GenericDAO<Votacao, ?> dao, Class<Votacao> t) {
         super(dao, t);
     }
     @Override
@@ -27,5 +28,4 @@ public class VotacaoBusiness {
 
         return processors;
     }
-}
 }

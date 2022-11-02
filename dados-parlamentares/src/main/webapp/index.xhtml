@@ -4,14 +4,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Dados Parlamentares</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 </h:head>
 
 <h:body>
+    <h:form id="botoes">
+        <h:outputText value = "Selecione os dados desejados:" styleClass="firstText"/>
+            <p:panelGrid columns="4" styleClass="panelGrid">
+                <p:commandButton value="Blocos" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Deputados" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Despesas" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Despesas Politicos" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Despesas Partidos" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Fornecedores" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Legislaturas" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Legislaturas Camara" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Legislaturas Senado" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Partidos" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Políticos" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Políticos Proposições" styleClass="rounded-button ui-button-raised"
+                                 ajax="false"/>
+                <p:commandButton value="Políticos Votações" styleClass="rounded-button ui-button-raised"
+                                 ajax="false"/>
+                <p:commandButton value="Proposições" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Senadores" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+                <p:commandButton value="Votações" styleClass="rounded-button ui-button-raised"
+                                  ajax="false"/>
+            </p:panelGrid>
+    </h:form>
+
     <div>
-        <h:outputText value="Olá, mundo!" />
+        <ui:insert name="pagina" />
     </div>
 </h:body>
 
