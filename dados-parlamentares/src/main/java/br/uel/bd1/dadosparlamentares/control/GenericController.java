@@ -8,6 +8,7 @@ public abstract class GenericController<T> implements Serializable {
     @Inject
     protected T bean;
     protected List<T> queryBuf;
+//    protected Class<T> ownClass;
 
     protected static final long serialVersionUID = 1L;
 
@@ -18,6 +19,14 @@ public abstract class GenericController<T> implements Serializable {
     public void setBean(T bean) {
         this.bean = bean;
     }
+
+//    public Class<T> getOwnClass() {
+//        return ownClass;
+//    }
+//
+//    public void setOwnClass(Class<T> ownClass) {
+//        this.ownClass = ownClass;
+//    }
 
     public List<T> getQueryBuf() {
         return queryBuf;
