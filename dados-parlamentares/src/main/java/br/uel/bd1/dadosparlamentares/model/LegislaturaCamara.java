@@ -8,13 +8,13 @@ import jakarta.validation.constraints.NotNull;
 @RequestScoped
 public class LegislaturaCamara {
     @NotNull
-    private Long num;
+    private Short num;
 
-    public Long getNum() {
+    public Short getNum() {
         return num;
     }
 
-    public void setNum(Long num) {
+    public void setNum(Short num) {
         this.num = num;
     }
 }
