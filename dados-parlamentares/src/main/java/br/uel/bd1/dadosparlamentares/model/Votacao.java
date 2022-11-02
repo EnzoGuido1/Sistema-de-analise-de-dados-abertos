@@ -82,8 +82,8 @@ public class Votacao {
         return dt_hora;
     }
 
-    public void setDt_hora(PGTimestamp dt_hora) {
-        this.dt_hora = dt_hora;
+    public void setDt_hora(long dt_hora) {
+        this.dt_hora = new PGTimestamp(dt_hora);
     }
 
     public Date getDt_dia() {
