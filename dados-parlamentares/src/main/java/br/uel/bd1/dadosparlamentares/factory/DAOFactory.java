@@ -11,10 +11,10 @@ public abstract class DAOFactory implements AutoCloseable {
 
     public static DAOFactory getInstance()
             throws ClassNotFoundException, IOException, SQLException {
-        Connection connection = GenericConnectionFactory.getInstance().getConnection();
+        Connection connection = ConnectionFactory.getInstance().getConnection();
         DAOFactory factory;
 
-        if(GenericConnectionFactory.getServer().equals("postgresql")) {
+        if(ConnectionFactory.getServer().equals("postgresql")) {
             factory = new PgDAOFactory(connection);
         }
         else {

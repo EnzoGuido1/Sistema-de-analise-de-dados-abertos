@@ -1,7 +1,5 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
-import br.uel.bd1.dadosparlamentares.factory.GenericConnectionFactory;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
