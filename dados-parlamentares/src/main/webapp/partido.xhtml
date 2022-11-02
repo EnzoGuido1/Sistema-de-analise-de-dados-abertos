@@ -11,7 +11,8 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:commandButton value="Upload CSV" action="upload.xhtml"/>
+   <p:commandButton value="Partidos" styleClass="rounded-button ui-button-raised"
+                    action="insercao.xhtml" ajax="false"/>
    <p:dataTable title="Partidos" value="#{partidoController.queryBuf}" var="partido"
                 paginator="true" rows="50"
                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
