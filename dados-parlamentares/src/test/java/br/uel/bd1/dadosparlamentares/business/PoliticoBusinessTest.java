@@ -16,7 +16,7 @@ public class PoliticoBusinessTest {
         PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
 
         PoliticoBusiness business = BusinessFactory.getPoliticoBusiness();
-        business.insertFromCsv("/home/matheuspvr/Politico.csv");
+//        business.insertFromCsv("/home/matheuspvr/Politico.csv");
         politicoDao.closeConnection();
     }
 }

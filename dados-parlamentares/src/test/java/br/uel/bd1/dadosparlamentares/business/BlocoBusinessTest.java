@@ -10,6 +10,6 @@ public class BlocoBusinessTest {
     @Test
     public void insertFromCsv() throws SQLException, IOException, ClassNotFoundException {
         BlocoBusiness blocoBusiness = BusinessFactory.getBlocoBusiness();
-        blocoBusiness.insertFromCsv("/home/matheuspvr/Bloco.csv");
+//        blocoBusiness.insertFromCsv("/home/matheuspvr/Bloco.csv");
     }
 }

@@ -3,13 +3,35 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-   <title>Politicos</title>
+   <title>Inserção</title>
 
 </h:head>
 
 <h:body>
-
+   <h:form>
+      <p:inputText value="#{GenericBusiness.filename}"/>
+      <h:selectOneMenu value="#{GenericBusiness.aClass}">
+         <f:selectItem itemValue="#{bloco.class}" itemLabel="Bloco" />
+         <f:selectItem itemValue="#{deputado.class}" itemLabel="Deputado" />
+         <f:selectItem itemValue="#{despesa.class}" itemLabel="Despesa" />
+         <f:selectItem itemValue="#{despesaPartido.class}" itemLabel="Despesa Partido" />
+         <f:selectItem itemValue="#{despesaPolitico.class}" itemLabel="Despesa Politico" />
+         <f:selectItem itemValue="#{fornecedor.class}" itemLabel="Fornecedor" />
+         <f:selectItem itemValue="#{legislatura.class}" itemLabel="Legislatura" />
+         <f:selectItem itemValue="#{legislaturaCamara.class}" itemLabel="Legislatura Carama" />
+         <f:selectItem itemValue="#{legislaturaSenado.class}" itemLabel="Legislatura Senado" />
+         <f:selectItem itemValue="#{partido.class}" itemLabel="Partido" />
+         <f:selectItem itemValue="#{politico.class}" itemLabel="Politico" />
+         <f:selectItem itemValue="#{politicoPropoe.class}" itemLabel="Proposição Político" />
+         <f:selectItem itemValue="#{politicoVota.class}" itemLabel="Votação Político" />
+         <f:selectItem itemValue="#{proposicao.class}" itemLabel="Proposição" />
+         <f:selectItem itemValue="#{senador.class}" itemLabel="Senador" />
+         <f:selectItem itemValue="#{votacao.class}" itemLabel="Votação" />
+      </h:selectOneMenu>
+      <p:commandButton value="Enviar" action="#{GenericBusiness.insertFromCsv}"/>
+   </h:form>
 </h:body>
 </html>

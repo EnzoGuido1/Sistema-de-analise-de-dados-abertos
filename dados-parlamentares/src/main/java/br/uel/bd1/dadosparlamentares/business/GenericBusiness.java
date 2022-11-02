@@ -11,13 +11,23 @@ public abstract class GenericBusiness<T> {
     protected T bean;
     protected GenericDAO<T, ?> dao;
     private Class<T> beanClass;
+    String filename;
+
+    //make the get and set for string filename
+    public String getFilename() {
+        return filename;
+    }
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
 
     public GenericBusiness(GenericDAO<T, ?> dao, Class<T> t) {
         this.dao = dao;
         this.beanClass = t;
     }
 
-    public void insertFromCsv(String filename) {
+    public void insertFromCsv() {
+
         try(ICsvBeanReader beanReader
                     = new CsvBeanReader(new FileReader(filename), CsvPreference.STANDARD_PREFERENCE)) {
 
