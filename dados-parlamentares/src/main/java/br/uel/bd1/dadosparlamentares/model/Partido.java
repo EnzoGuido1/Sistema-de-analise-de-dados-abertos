@@ -27,6 +27,8 @@ public class Partido {
         this.num = num;
     }
 
+    public void setNum(Integer num) { this.num = num.shortValue(); }
+
     public Long getCnpj() {
         return cnpj;
     }

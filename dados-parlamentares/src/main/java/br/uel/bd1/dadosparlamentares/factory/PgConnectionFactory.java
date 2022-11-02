@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class PgConnectionFactory extends GenericConnectionFactory {
+public class PgConnectionFactory extends ConnectionFactory {
     private String host,
                    port,
                    database,
@@ -16,24 +16,24 @@ public class PgConnectionFactory extends GenericConnectionFactory {
 
     public PgConnectionFactory() {}
 
-    public void readProperties() throws IOException {
-        Properties properties = new Properties();
-
-        try {
-            InputStream input = this.getClass().getClassLoader().getResourceAsStream(propertiesPath);
-            properties.load(input);
-
-            host = properties.getProperty("host");
-            port = properties.getProperty("port");
-            database = properties.getProperty("database");
-            user = properties.getProperty("user");
-            password = properties.getProperty("password");
-        }
-        catch(IOException ex) {
-            System.err.println(ex.getMessage());
-            throw new IOException("Erro ao obter informações do banco de dados.");
-        }
-    }
+//    public void readProperties() throws IOException {
+//        Properties properties = new Properties();
+//
+//        try {
+//            InputStream input = this.getClass().getClassLoader().getResourceAsStream(propertiesPath);
+//            properties.load(input);
+//
+//            host = properties.getProperty("host");
+//            port = properties.getProperty("port");
+//            database = properties.getProperty("database");
+//            user = properties.getProperty("user");
+//            password = properties.getProperty("password");
+//        }
+//        catch(IOException ex) {
+//            System.err.println(ex.getMessage());
+//            throw new IOException("Erro ao obter informações do banco de dados.");
+//        }
+//    }
 
     @Override
     public Connection getConnection() throws IOException, SQLException, ClassNotFoundException {
@@ -41,7 +41,7 @@ public class PgConnectionFactory extends GenericConnectionFactory {
 
         host = "127.0.0.1";
         port = "5432";
-        database = "trabalho_bd1";
+        database = "dados_parlamentares";
         user = "postgres";
         password = "pg12345";
 

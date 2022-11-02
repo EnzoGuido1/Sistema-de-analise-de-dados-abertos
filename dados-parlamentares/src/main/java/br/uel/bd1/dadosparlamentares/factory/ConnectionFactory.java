@@ -4,16 +4,16 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public abstract class GenericConnectionFactory {
-
-    private static GenericConnectionFactory instance = null;
-    protected static String propertiesPath = "../../main/webapp/conf/jdbc.properties";
+public abstract class ConnectionFactory {
+    private static ConnectionFactory instance = null;
+//    protected static String propertiesPath = ConnectionFactory.class.getResource("conf/jdbc.properties")
+//            .getFile();
     private static String server = "postgresql";
 
-    protected GenericConnectionFactory() {}
+    protected ConnectionFactory() {}
 
-    public static GenericConnectionFactory getInstance() throws IOException {
-//        if(instance == null) {
+    public static ConnectionFactory getInstance() throws IOException {
+        if(instance == null) {
 //            Properties properties = new Properties();
 //            try {
 //                InputStream input = new FileInputStream(new File(propertiesPath));
@@ -22,18 +22,18 @@ public abstract class GenericConnectionFactory {
 //            }
 //            catch(IOException ex) {
 //                System.err.println(ex.getMessage());
-//
 //                throw new IOException("Erro ao obter informações do banco de dados.");
 //            }
 //            if(getServer().equals("postgresql")) {
-//                instance = new PgGenericConnectionFactory();
+//                instance = new PgConnectionFactory();
 //            }
 //            else {
 //                throw new RuntimeException("Servidor de banco de dados não suportado.");
 //            }
-//        }
-//        return instance;
-        return new PgConnectionFactory();
+            instance = new PgConnectionFactory();
+        }
+
+        return instance;
     }
     
     public static String getServer() {
