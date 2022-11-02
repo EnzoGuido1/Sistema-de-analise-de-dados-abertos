@@ -10,7 +10,7 @@
 </h:head>
 
 <h:body>
-    <p:dataTable title="Bloco" value="#{bloco}" var="bloco" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+    <p:dataTable title="Blocos" value="#{blocoController.queryBuf}" var="bloco" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
         <p:column headerText="id bloco">
             #{bloco.id}
         </p:column>
