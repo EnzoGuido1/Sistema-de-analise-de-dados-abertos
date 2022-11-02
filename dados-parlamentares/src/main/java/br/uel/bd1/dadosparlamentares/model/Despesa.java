@@ -62,8 +62,8 @@ public class Despesa {
         this.detalhamento = detalhamento;
     }
 
-    public PGmoney getValor() {
-        return valor;
+    public String getValor() {
+        return valor.getValue();
     }
 
     public void setValor(String valor) {

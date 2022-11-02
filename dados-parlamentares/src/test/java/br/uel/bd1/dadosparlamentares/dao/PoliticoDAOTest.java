@@ -50,8 +50,8 @@ public class PoliticoDAOTest {
     public void delete() throws SQLException, IOException, ClassNotFoundException {
         PoliticoDAO politicoDao = DAOFactory.getInstance().getPoliticoDAO();
         Politico p = new Politico();
-        p.setCpf(43025900253L);
+//        p.setCpf(43025900253L);
 
-        politicoDao.delete(p);
+        politicoDao.delete(43025900253L);
     }
 }

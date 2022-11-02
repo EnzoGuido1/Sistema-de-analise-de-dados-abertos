@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class GenericDAO<T, K> {
     protected Connection connection;
 
-    public GenericDAO(Connection connection) {
+    protected GenericDAO(Connection connection) {
         try {
             this.connection = connection;
         }
@@ -18,10 +18,18 @@ public abstract class GenericDAO<T, K> {
         }
     }
 
+    public void closeConnection() {
+        try {
+            connection.close();
+        }
+        catch(SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public abstract List<T> selectAll()                      throws SQLException;
     public abstract T selectByPrimaryKey(K primaryKey)       throws SQLException;
     public abstract void insert(T t)                         throws SQLException;
     public abstract void update(T t)                         throws SQLException;
-    public abstract void delete(T t)                         throws SQLException;
-    public abstract void closeConnection()                   throws SQLException;
+    public abstract void delete(K primaryKey)                throws SQLException;
 }

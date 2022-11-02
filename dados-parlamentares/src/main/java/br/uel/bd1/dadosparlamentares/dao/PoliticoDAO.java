@@ -20,25 +20,20 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         ArrayList<Politico> entities = new ArrayList<Politico>();
         String query = "SELECT * FROM politico ORDER BY nome";
 
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            result = ps.executeQuery();
+        PreparedStatement ps = connection.prepareStatement(query);
+        result = ps.executeQuery();
 
-            while(result.next() ) {
-                Politico p = new Politico();
-                p.setCpf(result.getLong("cpf"));
-                p.setNome(result.getString("nome"));
-                p.setSobrenome(result.getString("snome"));
-                p.setSigla(result.getString("par_sigla"));
+        while(result.next() ) {
+            Politico p = new Politico();
+            p.setCpf(result.getLong("cpf"));
+            p.setNome(result.getString("nome"));
+            p.setSobrenome(result.getString("snome"));
+            p.setSigla(result.getString("par_sigla"));
 
-                entities.add(p);
-            }
-            result.close();
-            ps.close();
+            entities.add(p);
         }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }
+        result.close();
+        ps.close();
 
         return entities;
     }
@@ -48,86 +43,57 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         Politico p = new Politico();
         String query = "SELECT * FROM politico WHERE cpf = ?";
 
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setLong(1, primaryKey);
-            result = ps.executeQuery();
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setLong(1, primaryKey);
+        result = ps.executeQuery();
 
-            if(result.next() == false)
-                return null;
+        if(result.next() == false)
+            return null;
 
-            p.setCpf(result.getLong("cpf"));
-            p.setNome(result.getString("nome"));
-            p.setSobrenome(result.getString("snome"));
-            p.setSigla(result.getString("par_sigla"));
+        p.setCpf(result.getLong("cpf"));
+        p.setNome(result.getString("nome"));
+        p.setSobrenome(result.getString("snome"));
+        p.setSigla(result.getString("par_sigla"));
 
-            result.close();
-            ps.close();
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }
+        result.close();
+        ps.close();
 
         return p;
     }
     @Override
-    public void insert(Politico p) {
+    public void insert(Politico p) throws SQLException {
         String query = "INSERT INTO politico (cpf, nome, snome, par_sigla) VALUES (?, ?, ?, ?)";
 
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setLong(1, p.getCpf());
-            ps.setString(2, p.getNome());
-            ps.setString(3, p.getSobrenome());
-            ps.setString(4, p.getSigla());
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setLong(1, p.getCpf());
+        ps.setString(2, p.getNome());
+        ps.setString(3, p.getSobrenome());
+        ps.setString(4, p.getSigla());
 
-            ps.execute();
-            ps.close();
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }
+        ps.execute();
+        ps.close();
     }
     @Override
-    public void update(Politico p) {
+    public void update(Politico p) throws SQLException {
         String query = "UPDATE politico SET nome = ?, snome = ?, par_sigla = ? WHERE cpf = ?";
 
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setString(1, p.getNome());
-            ps.setString(2, p.getSobrenome());
-            ps.setString(3, p.getSigla());
-            ps.setLong(4, p.getCpf());
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, p.getNome());
+        ps.setString(2, p.getSobrenome());
+        ps.setString(3, p.getSigla());
+        ps.setLong(4, p.getCpf());
 
-            ps.execute();
-            ps.close();
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }
+        ps.execute();
+        ps.close();
     }
     @Override
-    public void delete(Politico p) {
+    public void delete(Long primaryKey) throws SQLException {
         String query = "DELETE FROM politico WHERE cpf = ?";
 
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setLong(1, p.getCpf());
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setLong(1, primaryKey);
 
-            ps.execute();
-            ps.close();
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    @Override
-    public void closeConnection() {
-        try {
-            connection.close();
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
-        }
+        ps.execute();
+        ps.close();
     }
 }
