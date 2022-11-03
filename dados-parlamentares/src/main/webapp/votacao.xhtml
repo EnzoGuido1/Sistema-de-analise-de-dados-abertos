@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+   <title>Votações</title>
+
+</h:head>
+
+<h:body>
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Votações" value="#{votacaoController.queryBuf}" var="votacao">
+      <p:column headerText="id">
+         <p:outputLabel id="id" value="#{votacao.id}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Órgão">
+         <p:outputLabel id="orgao" value="#{votacao.orgao}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Votos Sim">
+         <p:outputLabel id="votos_s" value="#{votacao.votos_s}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Votos não">
+         <p:outputLabel id="votos_n" value="#{votacao.votos_n}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Aprovação">
+         <p:outputLabel id="aprovacao" value="#{votacao.aprovacao}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Descrição">
+         <p:outputLabel id="descricao" value="#{votacao.descricao}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Horário">
+         <p:outputLabel id="dt_hora" value="#{votacao.dt_hora}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Data">
+         <p:outputLabel id="dt_dia" value="#{votacao.dt_dia}"></p:outputLabel>
+      </p:column>
+   </p:dataTable>
+</h:body>
+</html>

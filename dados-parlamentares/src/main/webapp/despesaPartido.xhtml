@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+   <title>Despesas de Partidos</title>
+
+</h:head>
+
+<h:body>
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Despesas de Partidos" value="#{despesaPartidoController.queryBuf}" var="despesaPartido">
+      <p:column headerText="documento">
+         <p:outputLabel id="Documento" value="#{despesaPartido.documento}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Fornecedor cpf/cnpj">
+         <p:outputLabel id="for_cpf_cnpj" value="#{despesaPartido.for_cpf_cnpj}"></p:outputLabel>
+      </p:column>
+      <p:column headerText="Sigla Partido">
+         <p:outputLabel id="par_sigla" value="#{despesaPartido.par_sigla}"></p:outputLabel>
+      </p:column>
+   </p:dataTable>
+</h:body>
+</html>

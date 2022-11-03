@@ -1,0 +1,25 @@
+.panelGrid {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.firstText{
+    font-size: 30px;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.table{
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.td, th{
+    border: 2px solid #000000;
+    border-collapse: collapse
+}
