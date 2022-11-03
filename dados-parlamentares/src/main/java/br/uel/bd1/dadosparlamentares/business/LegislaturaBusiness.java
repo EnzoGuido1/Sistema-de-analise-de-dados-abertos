@@ -18,9 +18,9 @@ public class LegislaturaBusiness extends GenericBusiness<Legislatura> {
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
                 new Optional(new ParseInt()), //ano
-                new NotNull(new ParseInt()), //id
-                new Optional(new ParseDate("dd/MM/YYYY")), //dt_ini
-                new Optional(new ParseDate("dd/MM/YYYY")) //dt_fim
+                new NotNull(new ParseInt()), //num
+                new Optional(new ParseDate("dd/MM/yyyy")), //dt_ini
+                new Optional(new ParseDate("dd/MM/yyyy")) //dt_fim
         };
 
         return processors;

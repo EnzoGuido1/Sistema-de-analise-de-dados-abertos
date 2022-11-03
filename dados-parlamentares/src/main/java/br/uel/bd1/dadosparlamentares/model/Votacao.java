@@ -6,9 +6,8 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
-import org.postgresql.util.PGTimestamp;
-
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Votacao {
     @Size(max=11)
@@ -24,7 +23,7 @@ public class Votacao {
     @Size(max=250)
     private String descricao;
     @PastOrPresent
-    private PGTimestamp dt_hora;
+    private Timestamp dt_hora;
     @PastOrPresent
     private Date dt_dia;
 
@@ -76,12 +75,12 @@ public class Votacao {
         this.descricao = descricao;
     }
 
-    public PGTimestamp getDt_hora() {
+    public Timestamp getDt_hora() {
         return dt_hora;
     }
 
-    public void setDt_hora(long dt_hora) {
-        this.dt_hora = new PGTimestamp(dt_hora);
+    public void setDt_hora(Timestamp dt_hora) {
+        this.dt_hora = dt_hora;
     }
 
     public Date getDt_dia() {

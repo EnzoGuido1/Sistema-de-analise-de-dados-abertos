@@ -9,7 +9,8 @@ import java.sql.SQLException;
 public class LegislaturaBusinessTest {
     @Test
     public void insertFromCsv() throws SQLException, IOException, ClassNotFoundException {
-        LegislaturaBusiness legislaturaBusiness = BusinessFactory.getLegislaturaBusiness();
-        legislaturaBusiness.insertFromCsv("C:\\Users\\PCMonstro\\Desktop\\Legislatura.csv");
+        LegislaturaBusiness business = BusinessFactory.getLegislaturaBusiness();
+//        business.insertFromCsv("/home/matheuspvr/Downloads/Dados Processados/Legislatura.csv");
+        business.insertFromCsv("/home/matheuspvr/Legislatura.csv");
     }
 }
