@@ -17,10 +17,10 @@ public class LegislaturaBusiness extends GenericBusiness<Legislatura> {
     @Override
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
-                new NotNull(new ParseLong()), //id
                 new Optional(new ParseInt()), //ano
-                new Optional(new ParseDate("yyyy-MM-ddTHH:mm:ss")), //dt_ini
-                new Optional(new ParseDate("yyyy-MM-ddTHH:mm:ss")) //dt_fim
+                new NotNull(new ParseInt()), //num
+                new Optional(new ParseDate("dd/MM/yyyy")), //dt_ini
+                new Optional(new ParseDate("dd/MM/yyyy")) //dt_fim
         };
 
         return processors;

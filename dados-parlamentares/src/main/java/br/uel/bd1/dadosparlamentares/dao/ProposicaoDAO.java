@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +65,7 @@ public class ProposicaoDAO extends GenericDAO<Proposicao, Long> {
         ps.setLong(1, p.getId());
         ps.setString(2, p.getDescricao());
         ps.setString(3, p.getEmenta());
-        ps.setDate(4, p.getData());
+        ps.setDate(4, new Date(p.getData().getTime()));
 
         ps.executeUpdate();
         ps.close();
@@ -76,7 +77,7 @@ public class ProposicaoDAO extends GenericDAO<Proposicao, Long> {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, p.getDescricao());
         ps.setString(2, p.getEmenta());
-        ps.setDate(3, p.getData());
+        ps.setDate(3, new Date(p.getData().getTime()));
         ps.setLong(4, p.getId());
 
         ps.executeUpdate();

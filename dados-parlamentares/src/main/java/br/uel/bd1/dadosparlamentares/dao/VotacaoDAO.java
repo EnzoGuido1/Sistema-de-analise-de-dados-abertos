@@ -31,7 +31,7 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
             v.setVotos_s(result.getShort("votos_s"));
             v.setVotos_n(result.getShort("votos_n"));
             v.setDt_dia(result.getDate("dt_dia"));
-            v.setDt_hora(result.getTimestamp("dt_hora").getTime());
+            v.setDt_hora(result.getTimestamp("dt_hora"));
         }
         result.close();
         ps.close();
@@ -56,7 +56,7 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
             v.setVotos_s(result.getShort("votos_s"));
             v.setVotos_n(result.getShort("votos_n"));
             v.setDt_dia(result.getDate("dt_dia"));
-            v.setDt_hora(result.getTimestamp("dt_hora").getTime());
+            v.setDt_hora(result.getTimestamp("dt_hora"));
         }
         result.close();
         ps.close();

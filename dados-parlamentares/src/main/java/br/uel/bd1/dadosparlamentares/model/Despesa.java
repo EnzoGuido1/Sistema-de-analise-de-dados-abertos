@@ -5,8 +5,7 @@ import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.postgresql.util.PGmoney;
-
-import java.sql.Date;
+import java.util.Date;
 import java.sql.SQLException;
 
 public class Despesa {
