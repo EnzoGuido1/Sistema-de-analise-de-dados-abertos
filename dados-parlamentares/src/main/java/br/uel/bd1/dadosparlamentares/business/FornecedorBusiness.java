@@ -17,7 +17,6 @@ public class FornecedorBusiness extends GenericBusiness<Fornecedor> {
         final CellProcessor[] processors = new CellProcessor[] {
                 new NotNull(new ParseLong()), //cpf/cnpj
                 new Optional(), //razão
-                new Optional() //atividade
         };
 
         return processors;

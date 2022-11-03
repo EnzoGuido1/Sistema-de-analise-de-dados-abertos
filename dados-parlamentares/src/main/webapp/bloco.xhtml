@@ -10,15 +10,16 @@
 </h:head>
 
 <h:body>
-    <p:dataTable title="Blocos" value="#{blocoController.queryBuf}" var="bloco" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
-        <p:column headerText="id bloco">
-            #{bloco.id}
+    <p:growl id="messages" showDetail="true"/>
+    <p:dataTable title="Blocos" value="#{blocoController.queryBuf}" var="bloco">
+        <p:column headerText="Id">
+            <p:outputLabel id="id" value="#{bloco.id}"></p:outputLabel>
         </p:column>
-        <p:column headerText="id legislatura">
-            #{bloco.leg_id}
+        <p:column headerText="Número Legislatura">
+            <p:outputLabel id="num_leg" value="#{bloco.num_leg}"></p:outputLabel>
         </p:column>
-        <p:column headerText="sigla partido">
-            #{bloco.partido_sigla}
+        <p:column headerText="Sigla Partido">
+            <p:outputLabel id="par_sigla" value="#{bloco.par_sigla}"></p:outputLabel>
         </p:column>
     </p:dataTable>
 </h:body>

@@ -5,15 +5,17 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
-   <title>Legislatura do Senado</title>
+   <title>Legislatura Senado</title>
 
 </h:head>
 
 <h:body>
-   <p:dataTable title="Legislatura do Senado" value="#{legislaturaSenadoController.queryBuf}" var="legislaturaSenado" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
-      <p:column headerText="numero">
-         #{legislaturaSenado.num}
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Legislatura Senado" value="#{legislaturaSenadoController.queryBuf}" var="legislaturaSenado">
+      <p:column headerText="Número">
+         <p:outputLabel id="num" value="#{legislaturaSenado.num}"></p:outputLabel>
       </p:column>
+
    </p:dataTable>
 </h:body>
 </html>

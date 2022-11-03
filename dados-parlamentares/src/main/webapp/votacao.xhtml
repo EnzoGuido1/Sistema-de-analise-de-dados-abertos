@@ -10,30 +10,31 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Votações" value="#{votacaoController.queryBuf}" var="votacao" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Votações" value="#{votacaoController.queryBuf}" var="votacao">
       <p:column headerText="id">
-         #{votacao.id}
+         <p:outputLabel id="id" value="#{votacao.id}"></p:outputLabel>
       </p:column>
-      <p:column headerText="órgão">
-         #{votacao.orgao}
+      <p:column headerText="Órgão">
+         <p:outputLabel id="orgao" value="#{votacao.orgao}"></p:outputLabel>
       </p:column>
-      <p:column headerText="votos sim">
-         #{votacao.votos_s}
+      <p:column headerText="Votos Sim">
+         <p:outputLabel id="votos_s" value="#{votacao.votos_s}"></p:outputLabel>
       </p:column>
-      <p:column headerText="votos não">
-         #{votacao.votos_n}
+      <p:column headerText="Votos não">
+         <p:outputLabel id="votos_n" value="#{votacao.votos_n}"></p:outputLabel>
       </p:column>
-      <p:column headerText="aprovação">
-         #{votacao.aprovacao}
+      <p:column headerText="Aprovação">
+         <p:outputLabel id="aprovacao" value="#{votacao.aprovacao}"></p:outputLabel>
       </p:column>
-      <p:column headerText="descrição">
-         #{votacao.descricao}
+      <p:column headerText="Descrição">
+         <p:outputLabel id="descricao" value="#{votacao.descricao}"></p:outputLabel>
       </p:column>
-      <p:column headerText="horário">
-         #{votacao.dt_hora}
+      <p:column headerText="Horário">
+         <p:outputLabel id="dt_hora" value="#{votacao.dt_hora}"></p:outputLabel>
       </p:column>
-      <p:column headerText="dia">
-         #{votacao.dt_dia}
+      <p:column headerText="Data">
+         <p:outputLabel id="dt_dia" value="#{votacao.dt_dia}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>

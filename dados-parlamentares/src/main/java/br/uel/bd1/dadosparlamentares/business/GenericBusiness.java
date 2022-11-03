@@ -19,6 +19,7 @@ public abstract class GenericBusiness<T> {
     }
 
     public void insertFromCsv(String filename) {
+
         try(ICsvBeanReader beanReader
                     = new CsvBeanReader(new FileReader(filename), CsvPreference.STANDARD_PREFERENCE)) {
 

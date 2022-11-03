@@ -10,24 +10,25 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Despesas" value="#{despesaController.queryBuf}" var="despesa" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Despesas" value="#{despesaController.queryBuf}" var="despesa">
       <p:column headerText="documento">
-         #{despesa.documento}
+         <p:outputLabel id="Documento" value="#{despesa.documento}"></p:outputLabel>
       </p:column>
-      <p:column headerText="cpf/cnpj fornecedor">
-         #{despesa.for_cpf_cnpj}
+      <p:column headerText="Fornecedor cpf/cnpj">
+         <p:outputLabel id="for_cpf_cnpj" value="#{despesa.for_cpf_cnpj}"></p:outputLabel>
       </p:column>
-      <p:column headerText="data">
-         #{despesa.data}
+      <p:column headerText="Data">
+         <p:outputLabel id="data" value="#{despesa.data}"></p:outputLabel>
       </p:column>
-      <p:column headerText="tipo">
-         #{despesa.tipo}
+      <p:column headerText="Tipo">
+         <p:outputLabel id="tipo" value="#{despesa.tipo}"></p:outputLabel>
       </p:column>
-      <p:column headerText="valor">
-         #{despesa.valor}
+      <p:column headerText="Detalhamento">
+         <p:outputLabel id="detalhamento" value="#{despesa.detalhamento}"></p:outputLabel>
       </p:column>
-      <p:column headerText="detalhamento">
-         #{despesa.detalhamento}
+      <p:column headerText="Valor">
+         <p:outputLabel id="valor" value="#{despesa.valor}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>

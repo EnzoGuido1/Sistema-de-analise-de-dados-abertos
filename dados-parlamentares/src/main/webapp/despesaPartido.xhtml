@@ -10,15 +10,16 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Despesas de Partidos" value="#{despesaPartidoController.queryBuf}" var="despesaPartido" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Despesas de Partidos" value="#{despesaPartidoController.queryBuf}" var="despesaPartido">
       <p:column headerText="documento">
-         #{despesaPartido.documento}
+         <p:outputLabel id="Documento" value="#{despesaPartido.documento}"></p:outputLabel>
       </p:column>
-      <p:column headerText="cpf/cnpj fornecedor">
-         #{despesaPartido.for_cpf_cnpj}
+      <p:column headerText="Fornecedor cpf/cnpj">
+         <p:outputLabel id="for_cpf_cnpj" value="#{despesaPartido.for_cpf_cnpj}"></p:outputLabel>
       </p:column>
-      <p:column headerText="sigla do partido">
-         #{despesaPartido.par_sigla}
+      <p:column headerText="Sigla Partido">
+         <p:outputLabel id="par_sigla" value="#{despesaPartido.par_sigla}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>
