@@ -5,8 +5,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Named
-@RequestScoped
+//@Named                KKKK SOU UMA ANTA
+//@RequestScoped
 public class Bloco {
     @NotNull
     private Long id,

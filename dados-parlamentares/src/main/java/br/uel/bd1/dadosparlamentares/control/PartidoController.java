@@ -7,6 +7,7 @@ import jakarta.faces.FacesException;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import br.uel.bd1.dadosparlamentares.dao.PartidoDAO;
 @Named
 @ViewScoped
 public class PartidoController extends GenericController<Partido> {
+
     @PostConstruct
     public void init() {
         try {

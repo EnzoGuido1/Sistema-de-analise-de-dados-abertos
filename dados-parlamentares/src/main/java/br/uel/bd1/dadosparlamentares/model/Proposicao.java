@@ -8,8 +8,6 @@ import jakarta.validation.constraints.Size;
 
 import java.sql.Date;
 
-@Named
-@RequestScoped
 public class Proposicao {
     @NotNull
     private Long id;
