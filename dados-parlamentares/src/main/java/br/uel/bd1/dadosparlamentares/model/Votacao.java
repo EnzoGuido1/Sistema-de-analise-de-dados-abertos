@@ -10,8 +10,6 @@ import org.postgresql.util.PGTimestamp;
 
 import java.sql.Date;
 
-@Named
-@RequestScoped
 public class Votacao {
     @Size(max=11)
     @NotNull

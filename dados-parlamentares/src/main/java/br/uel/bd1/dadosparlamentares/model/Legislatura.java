@@ -8,8 +8,6 @@ import jakarta.validation.constraints.PastOrPresent;
 
 import java.sql.Date;
 
-@Named
-@RequestScoped
 public class Legislatura {
     @NotNull
     private Short num;
