@@ -20,20 +20,17 @@ import java.sql.SQLException;
 @RequestScoped
 public class FileUploadController {
     @Inject
-    @ManagedProperty(value = "#{insercaoController.teste}")
-    private String teste;
-    @Inject
     @ManagedProperty(value = "#{insercaoController.classToUpload}")
-    private Class<?> prop;
-
-    private Class<?> classToUpload;
+    private String prop;
+    private String aClass;
 
     public void upload(FileUploadEvent event) {
         FacesMessage msg = new FacesMessage("Success! ", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        event.getFile().getContent();
         try {
-            GenericBusiness<?> business = BusinessFactory.getBusinessByClass(classToUpload);
-            business.insertFromCsv(event.getFile().getFileName());
+            GenericBusiness<?> business = BusinessFactory.getBusinessByClass(aClass);
+            business.insertFromCsv(event.getFile().getInputStream());
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -41,6 +38,6 @@ public class FileUploadController {
     }
     @PostConstruct
     public void init() {
-        classToUpload = prop;
+        aClass = prop;
     }
 }
