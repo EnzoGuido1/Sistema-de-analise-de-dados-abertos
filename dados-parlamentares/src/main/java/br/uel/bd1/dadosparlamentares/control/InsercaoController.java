@@ -12,29 +12,14 @@ import java.io.Serializable;
 @SessionScoped
 public class InsercaoController implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    private Class<?> classToUpload;
     @Named
-//    @Produces
-    private String teste;
+    private String classToUpload;
 
-    public Class<?> getClassToUpload() {
+    public String getClassToUpload() {
         return classToUpload;
     }
 
-    public void setClassToUpload(Class<?> classToUpload) {
+    public void setClassToUpload(String classToUpload) {
         this.classToUpload = classToUpload;
     }
-
-    public String getTeste() {
-        return teste;
-    }
-
-    public void setTeste(String teste) {
-        this.teste = teste;
-    }
-//    @PostConstruct
-//    public void init() {
-//        teste = "Teste";
-//    }
 }
