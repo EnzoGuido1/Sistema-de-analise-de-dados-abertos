@@ -10,12 +10,15 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Proposições Politicos" value="#{politicoPropoeController.queryBuf}" var="politicoPropoe" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
-      <p:column headerText="político cpf/id">
-         #{politicoPropoe.pol_cpf_id}
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Proposições Politicos" value="#{politicoPropoeController.queryBuf}" var="politicoPropoe"
+                paginator="true" rows="50"
+                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+      <p:column headerText="cpf/id Político">
+         <p:outputLabel id="pol_cpf_id" value="#{politicoPropoe.pol_cpf_id}"></p:outputLabel>
       </p:column>
-      <p:column headerText="proposição id">
-         #{politicoPropoe.prop_id}
+      <p:column headerText="Id Proposição">
+         <p:outputLabel id="prop_id" value="#{politicoPropoe.prop_id}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>

@@ -10,18 +10,21 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Politicos" value="#{politicoController.queryBuf}" var="politico" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Politicos" value="#{politicoController.queryBuf}" var="politico"
+                paginator="true" rows="50"
+                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
       <p:column headerText="cpf/id">
-         #{politico.cpf_id}
+         <p:outputLabel id="cpf_id" value="#{politico.cpf_id}"></p:outputLabel>
       </p:column>
-      <p:column headerText="nome">
-         #{politico.nome}
+      <p:column headerText="Nome">
+         <p:outputLabel id="nome" value="#{politico.nome}"></p:outputLabel>
       </p:column>
-      <p:column headerText="sobrenome">
-         #{politico.sobrenome}
+      <p:column headerText="Sobrenome">
+         <p:outputLabel id="sobrenome" value="#{politico.sobrenome}"></p:outputLabel>
       </p:column>
-      <p:column headerText="partido sigla">
-         #{politico.sigla}
+      <p:column headerText="Sigla Partido">
+         <p:outputLabel id="sigla" value="#{politico.sigla}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>

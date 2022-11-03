@@ -2,7 +2,6 @@ package br.uel.bd1.dadosparlamentares.business;
 
 import br.uel.bd1.dadosparlamentares.dao.GenericDAO;
 import br.uel.bd1.dadosparlamentares.model.Bloco;
-import org.supercsv.cellprocessor.ParseInt;
 import org.supercsv.cellprocessor.ParseLong;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;

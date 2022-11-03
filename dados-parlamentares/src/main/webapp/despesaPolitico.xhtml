@@ -10,15 +10,18 @@
 </h:head>
 
 <h:body>
-   <p:dataTable title="Despesas de Politicos" value="#{despesaPoliticoController.queryBuf}" var="despesaPolitico" paginator="true" rows="50" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:growl id="messages" showDetail="true"/>
+   <p:dataTable title="Despesas de Politicos" value="#{despesaPoliticoController.queryBuf}" var="despesaPolitico"
+                paginator="true" rows="50"
+                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
       <p:column headerText="documento">
-         #{despesaPolitico.documento}
+         <p:outputLabel id="Documento" value="#{despesaPolitico.documento}"></p:outputLabel>
       </p:column>
-      <p:column headerText="cpf/cnpj fornecedor">
-         #{despesaPolitico.for_cpf_cnpj}
+      <p:column headerText="Fornecedor cpf/cnpj">
+         <p:outputLabel id="for_cpf_cnpj" value="#{despesaPolitico.for_cpf_cnpj}"></p:outputLabel>
       </p:column>
-      <p:column headerText="cpf/id político">
-         #{despesaPolitico.pol_cpf_id}
+      <p:column headerText="Politico cpf/id">
+         <p:outputLabel id="pol_cpf_id" value="#{despesaPolitico.pol_cpf_id}"></p:outputLabel>
       </p:column>
    </p:dataTable>
 </h:body>
