@@ -7,6 +7,7 @@ import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
 
 import java.io.*;
+import java.sql.SQLException;
 
 public abstract class GenericBusiness<T> {
     protected T bean;
@@ -18,7 +19,7 @@ public abstract class GenericBusiness<T> {
         this.beanClass = t;
     }
 
-    public void insertFromCsv(String filename) {
+    public void insertFromCsv(String filename) throws SQLException {
 
         try(ICsvBeanReader beanReader
                     = new CsvBeanReader(new FileReader(filename), CsvPreference.STANDARD_PREFERENCE)) {
@@ -30,12 +31,12 @@ public abstract class GenericBusiness<T> {
                 dao.insert(bean);
             }
         }
-        catch(Exception e) {
-            throw new RuntimeException(e);
+        catch(IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void insertFromCsv(InputStream fileStream) throws IOException {
+    public void insertFromCsv(InputStream fileStream) throws IOException, SQLException {
         File temp = new File("/tmp/temp.csv");
         OutputStream out = new FileOutputStream(temp);
         int read = 0;
@@ -48,22 +49,16 @@ public abstract class GenericBusiness<T> {
         out.flush();
         out.close();
 
-        try(ICsvBeanReader beanReader
-                    = new CsvBeanReader(new FileReader(temp), CsvPreference.STANDARD_PREFERENCE)) {
+        ICsvBeanReader beanReader
+                    = new CsvBeanReader(new FileReader(temp), CsvPreference.STANDARD_PREFERENCE);
 
-            final String[] headers = beanReader.getHeader(true);
-            final CellProcessor[] processors = getProcessors();
+        final String[] headers = beanReader.getHeader(true);
+        final CellProcessor[] processors = getProcessors();
 
-            while( (bean = beanReader.read(beanClass, headers, processors) ) != null) {
-                dao.insert(bean);
-            }
+        while( (bean = beanReader.read(beanClass, headers, processors) ) != null) {
+            dao.insert(bean);
         }
-        catch(Exception e) {
-            throw new RuntimeException(e);
-        }
-        finally {
-            temp.delete();
-        }
+        temp.delete();
     }
 
     protected abstract CellProcessor[] getProcessors();

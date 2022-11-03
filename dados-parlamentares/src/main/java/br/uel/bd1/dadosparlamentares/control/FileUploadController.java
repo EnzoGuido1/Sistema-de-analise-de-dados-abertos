@@ -25,16 +25,22 @@ public class FileUploadController {
     private String aClass;
 
     public void upload(FileUploadEvent event) {
-        FacesMessage msg = new FacesMessage("Success! ", event.getFile().getFileName() + " is uploaded.");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
         event.getFile().getContent();
         try {
             GenericBusiness<?> business = BusinessFactory.getBusinessByClass(aClass);
             business.insertFromCsv(event.getFile().getInputStream());
         }
         catch(Exception e) {
-            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new
+                    FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO",
+                    "Não foi possível completar inserção."));
+
+            throw new RuntimeException(e);
         }
+
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Sucesso! ",
+                        event.getFile().getFileName() + " foi inserido."));
     }
     @PostConstruct
     public void init() {

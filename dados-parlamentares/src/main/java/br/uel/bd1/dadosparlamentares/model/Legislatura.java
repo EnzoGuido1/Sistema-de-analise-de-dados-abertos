@@ -1,10 +1,6 @@
 package br.uel.bd1.dadosparlamentares.model;
 
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
-import jakarta.validation.constraints.PastOrPresent;
 import java.util.Date;
 
 public class Legislatura {
@@ -17,10 +13,6 @@ public class Legislatura {
 
     public Short getNum() {
         return num;
-    }
-
-    public void setano(Integer ano) {
-        this.ano = ano.shortValue();
     }
 
     public void setNum(Short num) {
@@ -36,10 +28,6 @@ public class Legislatura {
     }
 
     public void setAno(Integer ano) {
-        this.ano = ano;
-    }
-
-    public void setano(Integer ano) {
         this.ano = ano;
     }
 
