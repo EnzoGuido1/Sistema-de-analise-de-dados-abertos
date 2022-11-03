@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
 
-public class LegislaturaDAO extends GenericDAO<Legislatura, Short> {
+public class LegislaturaDAO extends GenericDAO<Legislatura, Integer> {
     public LegislaturaDAO(Connection connection) {
         super(connection);
     }
@@ -25,7 +26,7 @@ public class LegislaturaDAO extends GenericDAO<Legislatura, Short> {
         while (result.next()) {
             Legislatura l = new Legislatura();
             l.setNum(result.getShort("num"));
-            l.setAno(result.getShort("ano"));
+            l.setAno(result.getInt("ano"));
             l.setDt_inicio(result.getDate("dt_inicio"));
             l.setDt_fim(result.getDate("dt_fim"));
 
@@ -37,18 +38,18 @@ public class LegislaturaDAO extends GenericDAO<Legislatura, Short> {
         return entities;
     }
     @Override
-    public Legislatura selectByPrimaryKey(Short key) throws SQLException {
+    public Legislatura selectByPrimaryKey(Integer key) throws SQLException {
         ResultSet result;
         Legislatura l = new Legislatura();
         String query = "SELECT * FROM legislatura WHERE num = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setShort(1, key);
+        ps.setInt(1, key);
         result = ps.executeQuery();
 
         if (result.next()) {
             l.setNum(result.getShort("num"));
-            l.setAno(result.getShort("ano"));
+            l.setAno(result.getInt("ano"));
             l.setDt_inicio(result.getDate("dt_inicio"));
             l.setDt_fim(result.getDate("dt_fim"));
         }
@@ -63,9 +64,9 @@ public class LegislaturaDAO extends GenericDAO<Legislatura, Short> {
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setShort(1, entity.getNum());
-        ps.setShort(2, entity.getAno());
-        ps.setDate(3, entity.getDt_inicio());
-        ps.setDate(4, entity.getDt_fim());
+        ps.setInt(2, entity.getAno());
+        ps.setDate(3, new Date(entity.getDt_inicio().getTime()));
+        ps.setDate(4, new Date(entity.getDt_inicio().getTime()));
 
         ps.executeUpdate();
         ps.close();
@@ -75,20 +76,20 @@ public class LegislaturaDAO extends GenericDAO<Legislatura, Short> {
         String query = "UPDATE legislatura SET ano = ?, dt_inicio = ?, dt_fim = ? WHERE num = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setShort(1, entity.getAno());
-        ps.setDate(2, entity.getDt_inicio());
-        ps.setDate(3, entity.getDt_fim());
+        ps.setInt(1, entity.getAno());
+        ps.setDate(2, new Date(entity.getDt_inicio().getTime()));
+        ps.setDate(3, new Date(entity.getDt_inicio().getTime()));
         ps.setShort(4, entity.getNum());
 
         ps.executeUpdate();
         ps.close();
     }
     @Override
-    public void delete(Short primaryKey) throws SQLException {
+    public void delete(Integer primaryKey) throws SQLException {
         String query = "DELETE FROM legislatura WHERE num = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setLong(1, primaryKey);
+        ps.setInt(1, primaryKey);
 
         ps.executeUpdate();
         ps.close();

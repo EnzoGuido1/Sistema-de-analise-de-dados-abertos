@@ -5,13 +5,12 @@ import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.PastOrPresent;
-
-import java.sql.Date;
+import java.util.Date;
 
 public class Legislatura {
     @NotNull
     private Short num;
-    private Short ano;
+    private Integer ano;
     private Date dt_inicio;
 
     private Date dt_fim;
@@ -28,11 +27,19 @@ public class Legislatura {
         this.num = num;
     }
 
-    public Short getAno() {
+    public void setNum(Integer num) {
+        this.num = num.shortValue();
+    }
+
+    public Integer getAno() {
         return ano;
     }
 
-    public void setAno(Short ano) {
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
+
+    public void setano(Integer ano) {
         this.ano = ano;
     }
 
@@ -43,6 +50,7 @@ public class Legislatura {
     public void setDt_inicio(Date dt_inicio) {
         this.dt_inicio = dt_inicio;
     }
+
 
     public Date getDt_fim() {
         return dt_fim;
