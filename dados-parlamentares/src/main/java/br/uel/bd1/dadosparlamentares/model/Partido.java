@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
 
-@Named
-@RequestScoped
 public class Partido {
     @NotNull
     private Short num;

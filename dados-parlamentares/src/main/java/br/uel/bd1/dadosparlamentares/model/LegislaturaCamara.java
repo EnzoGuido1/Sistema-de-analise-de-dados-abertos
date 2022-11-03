@@ -4,8 +4,6 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 
-@Named
-@RequestScoped
 public class LegislaturaCamara {
     @NotNull
     private Short num;

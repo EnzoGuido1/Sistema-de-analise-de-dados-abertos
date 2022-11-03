@@ -4,8 +4,6 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 
-@Named
-@RequestScoped
 public class DespesaPolitico {
     @NotNull
     private Long for_cpf_cnpj,

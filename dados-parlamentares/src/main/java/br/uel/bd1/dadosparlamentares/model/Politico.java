@@ -5,8 +5,6 @@ import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Named
-@RequestScoped
 public class Politico {
     @NotNull
     private Long cpf_id;

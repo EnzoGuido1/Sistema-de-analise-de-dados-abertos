@@ -9,8 +9,6 @@ import org.postgresql.util.PGmoney;
 import java.sql.Date;
 import java.sql.SQLException;
 
-@Named
-@RequestScoped
 public class Despesa {
     @NotNull
     private Long documento,
