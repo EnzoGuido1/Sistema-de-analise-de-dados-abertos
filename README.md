@@ -12,11 +12,32 @@ Legislatura: dados de um mandato de um político <br />
 Votação: dados de uma votação (projeto de lei) proposta por um deputado federal
 
 ## Tecnologias utilizadas
+* Jakarta EE 9.1
+* Primefaces 12
+* SuperCSV 2.4
+* JUnit 5.9
+* Apache TomEE Webprofile 9.0.0
+* IntelliJ IDEA Ultimate
 * Postgres 14.5-1
-* Jakarta EE 10.0
-* NetBeans IDE 15
 
 ## Sites utilizados para consulta
 https://dadosabertos.camara.leg.br/swagger/api.html#staticfile <br />
 https://www12.senado.leg.br/transparencia/dados-abertos-transparencia/dados-abertos-ceaps <br />
 https://sig.tse.jus.br/ords/dwapr/seai/r/sig-eleicao-resultados/resultado-consolidado <br />
+
+## Procedimentos a serem seguidos com relação as branches:
+
+1. Cada funcionalidade específica será desenvolvida na sua própria branch, criada a partir de ```development```
+2. Uma vez concluída e devidamente testada, a branch da funcionalidade sofrerá merge com ```development```
+3. Ao final do prazo de entrega, ```development``` sofrerá merge com ```main``` e a versão definitiva será entregue.
+
+Ao final do ciclo de desenvolvimento, a versão definitiva para entrega está em ```main```.
+
+### Rotina de criação de novas funcionalidades:
+1. ```git checkout development```
+2. ```git pull```
+3. ```git checkout -b <nome_da_funcionalidade>```
+4. ```git add <arquivos...>```
+5. ```git commit -m <mensagem...>```
+6. ```git push origin <nome_da_funcionalidade>```
+7. (Merge será feito posteriormente, como descrito nas observações importantes).
