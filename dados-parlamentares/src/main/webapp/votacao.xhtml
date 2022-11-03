@@ -11,9 +11,7 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:dataTable title="Votações" value="#{votacaoController.queryBuf}" var="votacao"
-                paginator="true" rows="50"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:dataTable title="Votações" value="#{votacaoController.queryBuf}" var="votacao">
       <p:column headerText="id">
          <p:outputLabel id="id" value="#{votacao.id}"></p:outputLabel>
       </p:column>

@@ -11,9 +11,7 @@
 
 <h:body>
     <p:growl id="messages" showDetail="true"/>
-    <p:dataTable title="Blocos" value="#{blocoController.queryBuf}" var="bloco"
-                 paginator="true" rows="50"
-                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+    <p:dataTable title="Blocos" value="#{blocoController.queryBuf}" var="bloco">
         <p:column headerText="Id">
             <p:outputLabel id="id" value="#{bloco.id}"></p:outputLabel>
         </p:column>

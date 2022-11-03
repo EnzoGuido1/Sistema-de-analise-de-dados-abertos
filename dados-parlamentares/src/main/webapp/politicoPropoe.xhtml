@@ -11,9 +11,7 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:dataTable title="Proposições Politicos" value="#{politicoPropoeController.queryBuf}" var="politicoPropoe"
-                paginator="true" rows="50"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:dataTable title="Proposições Politicos" value="#{politicoPropoeController.queryBuf}" var="politicoPropoe">
       <p:column headerText="cpf/id Político">
          <p:outputLabel id="pol_cpf_id" value="#{politicoPropoe.pol_cpf_id}"></p:outputLabel>
       </p:column>

@@ -11,9 +11,7 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:dataTable title="Votações Politicos" value="#{politicoVotaController.queryBuf}" var="politicoVota"
-                paginator="true" rows="50"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:dataTable title="Votações Politicos" value="#{politicoVotaController.queryBuf}" var="politicoVota">
       <p:column headerText="cpf/id Político">
          <p:outputLabel id="pol_cpf_id" value="#{politicoVota.pol_cpf_id}"></p:outputLabel>
       </p:column>

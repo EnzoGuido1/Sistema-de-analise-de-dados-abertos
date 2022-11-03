@@ -39,7 +39,7 @@ public class PgConnectionFactory extends ConnectionFactory {
     public Connection getConnection() throws IOException, SQLException, ClassNotFoundException {
         Connection connection = null;
 
-        host = "127.0.0.1";
+        host = "25.60.189.91";
         port = "5432";
         database = "dados_parlamentares";
         user = "postgres";

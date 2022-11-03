@@ -20,6 +20,10 @@ public class Legislatura {
         return num;
     }
 
+    public void setano(Integer ano) {
+        this.ano = ano.shortValue();
+    }
+
     public void setNum(Short num) {
         this.num = num;
     }

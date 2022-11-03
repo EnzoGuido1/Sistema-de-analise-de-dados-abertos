@@ -11,9 +11,7 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:dataTable title="Legislaturas" value="#{legislaturaController.queryBuf}" var="legislatura"
-                paginator="true" rows="50"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:dataTable title="Legislaturas" value="#{legislaturaController.queryBuf}" var="legislatura">
       <p:column headerText="Número">
          <p:outputLabel id="num" value="#{legislatura.num}"></p:outputLabel>
       </p:column>

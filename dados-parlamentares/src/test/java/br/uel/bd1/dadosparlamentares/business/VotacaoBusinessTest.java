@@ -10,6 +10,6 @@ public class VotacaoBusinessTest {
     @Test
     public void insertFromCsv() throws SQLException, IOException, ClassNotFoundException {
         VotacaoBusiness votacaoBusiness = BusinessFactory.getVotacaoBusiness();
-//        votacaoBusiness.insertFromCsv("/home/matheuspvr/Votacao.csv");
+        votacaoBusiness.insertFromCsv("C:\\Users\\PCMonstro\\Desktop\\Votacao.csv");
     }
 }

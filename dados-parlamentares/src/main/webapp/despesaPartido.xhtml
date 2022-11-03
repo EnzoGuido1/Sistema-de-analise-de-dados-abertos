@@ -11,9 +11,7 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:dataTable title="Despesas de Partidos" value="#{despesaPartidoController.queryBuf}" var="despesaPartido"
-                paginator="true" rows="50"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:dataTable title="Despesas de Partidos" value="#{despesaPartidoController.queryBuf}" var="despesaPartido">
       <p:column headerText="documento">
          <p:outputLabel id="Documento" value="#{despesaPartido.documento}"></p:outputLabel>
       </p:column>

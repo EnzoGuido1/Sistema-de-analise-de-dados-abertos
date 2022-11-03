@@ -11,9 +11,7 @@
 
 <h:body>
    <p:growl id="messages" showDetail="true"/>
-   <p:dataTable title="Proposições" value="#{proposicaoController.queryBuf}" var="proposicao"
-                paginator="true" rows="50"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} ">
+   <p:dataTable title="Proposições" value="#{proposicaoController.queryBuf}" var="proposicao">
       <p:column headerText="id">
          <p:outputLabel id="id" value="#{proposicao.id}"></p:outputLabel>
       </p:column>
