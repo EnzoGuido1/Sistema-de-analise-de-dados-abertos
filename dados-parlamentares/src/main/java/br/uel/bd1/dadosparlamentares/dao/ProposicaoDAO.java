@@ -65,7 +65,7 @@ public class ProposicaoDAO extends GenericDAO<Proposicao, Long> {
         ps.setLong(1, p.getId());
         ps.setString(2, p.getDescricao());
         ps.setString(3, p.getEmenta());
-        ps.setDate(4, new Date(p.getData().getTime()));
+        ps.setDate(4, p.getData() != null ? new Date(p.getData().getTime()) : null);
 
         ps.executeUpdate();
         ps.close();
@@ -77,7 +77,7 @@ public class ProposicaoDAO extends GenericDAO<Proposicao, Long> {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, p.getDescricao());
         ps.setString(2, p.getEmenta());
-        ps.setDate(3, new Date(p.getData().getTime()));
+        ps.setDate(3, p.getData() != null ? new Date(p.getData().getTime()) : null);
         ps.setLong(4, p.getId());
 
         ps.executeUpdate();

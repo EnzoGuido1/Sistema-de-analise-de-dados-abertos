@@ -17,7 +17,7 @@ public class PoliticoPropoeBusiness extends GenericBusiness<PoliticoPropoe> {
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
                 new NotNull(new ParseLong()), //pol_cpf
-                new NotNull() //pro_id
+                new NotNull(new ParseLong()) //pro_id
         };
 
         return processors;

@@ -17,12 +17,11 @@ public class VotacaoBusiness extends GenericBusiness<Votacao> {
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
                 new NotNull(), //id
-                new Optional(new ParseDate("yyyy-MM-ddTHH:mm:ss")), //data
-                new Optional(), //sigla
+                new Optional(new ParseDate("dd/MM/yyyy")), //dt_dia
+                new Optional(), //orgao
                 new Optional(new ParseBool()), //aprovação
                 new Optional(new ParseInt()), //votos sim
                 new Optional(new ParseInt()), //votos não
-                new Optional(new ParseInt()), //votos outro
                 new Optional(), //descrição
         };
 

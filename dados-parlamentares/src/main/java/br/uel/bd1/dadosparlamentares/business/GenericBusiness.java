@@ -19,46 +19,63 @@ public abstract class GenericBusiness<T> {
         this.beanClass = t;
     }
 
-    public void insertFromCsv(String filename) throws SQLException {
+    public void insertFromCsv(String filename) {
 
         try(ICsvBeanReader beanReader
-                    = new CsvBeanReader(new FileReader(filename), CsvPreference.STANDARD_PREFERENCE)) {
+                    = new CsvBeanReader(new FileReader(filename), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE)) {
 
             final String[] headers = beanReader.getHeader(true);
             final CellProcessor[] processors = getProcessors();
 
-            while( (bean = beanReader.read(beanClass, headers, processors) ) != null) {
-                dao.insert(bean);
+            while(true) {
+                try {
+                    bean = beanReader.read(beanClass, headers, processors);
+                    if(bean == null)
+                        break;
+                    dao.insert(bean);
+                }
+                catch(SQLException e) {
+                    if(e.getSQLState().compareTo("23505") == 0) {
+                        try {
+                            dao.update(bean);
+                        }
+                        catch(SQLException f) {
+                            f.printStackTrace();
+                        }
+                    }
+                }
             }
         }
         catch(IOException e) {
             e.printStackTrace();
         }
+        finally {
+            dao.closeConnection();
+        }
     }
 
     public void insertFromCsv(InputStream fileStream) throws IOException, SQLException {
-        File temp = new File("/tmp/temp.csv");
-        OutputStream out = new FileOutputStream(temp);
-        int read = 0;
-        byte[] bytes = new byte[1024];
-
-        while ((read = fileStream.read(bytes)) != -1) {
-            out.write(bytes, 0, read);
-        }
-        fileStream.close();
-        out.flush();
-        out.close();
 
         ICsvBeanReader beanReader
-                    = new CsvBeanReader(new FileReader(temp), CsvPreference.STANDARD_PREFERENCE);
+                = new CsvBeanReader(new InputStreamReader(fileStream), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
 
         final String[] headers = beanReader.getHeader(true);
         final CellProcessor[] processors = getProcessors();
 
-        while( (bean = beanReader.read(beanClass, headers, processors) ) != null) {
-            dao.insert(bean);
+        while(true) {
+            try {
+                bean = beanReader.read(beanClass, headers, processors);
+                if(bean == null)
+                    break;
+                dao.insert(bean);
+            }
+            catch(SQLException e) {
+                if(e.getSQLState().compareTo("23505") == 0) {
+                    dao.update(bean);
+                }
+            }
         }
-        temp.delete();
+        dao.closeConnection();
     }
 
     protected abstract CellProcessor[] getProcessors();

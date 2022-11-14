@@ -10,6 +10,6 @@ public class LegislaturaCamaraBusinessTest {
     @Test
     public void insertFromCsv() throws SQLException, IOException, ClassNotFoundException {
         LegislaturaCamaraBusiness legislaturaCamaraBusiness = BusinessFactory.getLegislaturaCamaraBusiness();
-        legislaturaCamaraBusiness.insertFromCsv("C:\\Users\\PCMonstro\\Desktop\\LegislaturaCamara.csv");
+        legislaturaCamaraBusiness.insertFromCsv("/home/matheuspvr/Legislatura_ca.csv");
     }
 }

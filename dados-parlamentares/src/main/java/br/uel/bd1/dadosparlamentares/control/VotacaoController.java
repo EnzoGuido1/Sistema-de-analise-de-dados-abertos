@@ -15,6 +15,7 @@ public class VotacaoController extends GenericController<Votacao> {
     public void init() {
         try {
             queryBuf = DAOFactory.getInstance().getVotacaoDAO().selectAll();
+            System.out.println(queryBuf.size());
         }
         catch(Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new

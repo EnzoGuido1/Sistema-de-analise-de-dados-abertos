@@ -25,7 +25,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
 
         while(result.next() ) {
             Politico p = new Politico();
-            p.setCpf(result.getLong("cpf"));
+            p.setCpf(result.getLong("cpf_id"));
             p.setNome(result.getString("nome"));
             p.setSobrenome(result.getString("snome"));
             p.setSigla(result.getString("par_sigla"));
@@ -41,7 +41,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
     public Politico selectByPrimaryKey(Long primaryKey) throws SQLException {
         ResultSet result;
         Politico p = new Politico();
-        String query = "SELECT * FROM politico WHERE cpf = ?";
+        String query = "SELECT * FROM politico WHERE cpf_id = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, primaryKey);
@@ -50,7 +50,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
         if(result.next() == false)
             return null;
 
-        p.setCpf(result.getLong("cpf"));
+        p.setCpf(result.getLong("cpf_id"));
         p.setNome(result.getString("nome"));
         p.setSobrenome(result.getString("snome"));
         p.setSigla(result.getString("par_sigla"));
@@ -62,7 +62,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
     }
     @Override
     public void insert(Politico p) throws SQLException {
-        String query = "INSERT INTO politico (cpf, nome, snome, par_sigla) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO politico (cpf_id, nome, snome, par_sigla) VALUES (?, ?, ?, ?)";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, p.getCpf());
@@ -75,7 +75,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
     }
     @Override
     public void update(Politico p) throws SQLException {
-        String query = "UPDATE politico SET nome = ?, snome = ?, par_sigla = ? WHERE cpf = ?";
+        String query = "UPDATE politico SET nome = ?, snome = ?, par_sigla = ? WHERE cpf_id = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, p.getNome());
@@ -88,7 +88,7 @@ public class PoliticoDAO extends GenericDAO<Politico, Long> {
     }
     @Override
     public void delete(Long primaryKey) throws SQLException {
-        String query = "DELETE FROM politico WHERE cpf = ?";
+        String query = "DELETE FROM politico WHERE cpf_id = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, primaryKey);

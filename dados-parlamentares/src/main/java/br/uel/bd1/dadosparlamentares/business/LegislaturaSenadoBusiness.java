@@ -14,7 +14,6 @@ public class LegislaturaSenadoBusiness extends GenericBusiness<LegislaturaSenado
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
                 new NotNull(new ParseInt()), //num
-                new Optional() //id
         };
 
         return processors;
