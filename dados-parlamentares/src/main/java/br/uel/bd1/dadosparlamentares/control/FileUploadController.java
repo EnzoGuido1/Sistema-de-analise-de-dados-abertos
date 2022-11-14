@@ -25,7 +25,7 @@ public class FileUploadController {
     private String aClass;
 
     public void upload(FileUploadEvent event) {
-        event.getFile().getContent();
+        System.out.println(aClass);
         try {
             GenericBusiness<?> business = BusinessFactory.getBusinessByClass(aClass);
             business.insertFromCsv(event.getFile().getInputStream());
@@ -35,7 +35,7 @@ public class FileUploadController {
                     FacesMessage(FacesMessage.SEVERITY_ERROR, "ERRO",
                     "Não foi possível completar inserção."));
 
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         FacesContext.getCurrentInstance().addMessage(null,

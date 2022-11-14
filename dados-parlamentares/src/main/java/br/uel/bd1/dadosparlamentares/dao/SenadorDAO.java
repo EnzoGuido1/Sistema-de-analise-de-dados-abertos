@@ -17,7 +17,7 @@ public class SenadorDAO extends GenericDAO<Senador, Long> {
     public List<Senador> selectAll() throws SQLException {
         ResultSet result;
         ArrayList<Senador> entities = new ArrayList<Senador>();
-        String query = "SELECT * FROM deputado ORDER BY cpf_id";
+        String query = "SELECT * FROM senador ORDER BY cpf_id";
 
         PreparedStatement ps = connection.prepareStatement(query);
         result = ps.executeQuery();
@@ -38,7 +38,7 @@ public class SenadorDAO extends GenericDAO<Senador, Long> {
     public Senador selectByPrimaryKey(Long primaryKey) throws SQLException {
         ResultSet result;
         Senador d = new Senador();
-        String query = "SELECT * FROM deputado WHERE cpf_id = ?";
+        String query = "SELECT * FROM senador WHERE cpf_id = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, primaryKey);
@@ -57,7 +57,7 @@ public class SenadorDAO extends GenericDAO<Senador, Long> {
     }
     @Override
     public void insert(Senador d) throws SQLException{
-        String query = "INSERT INTO deputado (cpf_id, leg_sen_num) VALUES (?, ?)";
+        String query = "INSERT INTO senador (cpf_id, leg_sen_num) VALUES (?, ?)";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, d.getCpf_id());
@@ -68,7 +68,7 @@ public class SenadorDAO extends GenericDAO<Senador, Long> {
     }
     @Override
     public void update(Senador d) throws SQLException {
-        String query = "UPDATE deputado SET leg_sen_num = ? WHERE cpf_id = ?";
+        String query = "UPDATE senador SET leg_sen_num = ? WHERE cpf_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, d.getNum_leg_sen());
         ps.setLong(2, d.getCpf_id());
@@ -77,7 +77,7 @@ public class SenadorDAO extends GenericDAO<Senador, Long> {
     }
     @Override
     public void delete(Long primaryKey) throws SQLException {
-        String query = "DELETE FROM deputado WHERE cpf_id = ?";
+        String query = "DELETE FROM senador WHERE cpf_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, primaryKey);
         ps.executeUpdate();

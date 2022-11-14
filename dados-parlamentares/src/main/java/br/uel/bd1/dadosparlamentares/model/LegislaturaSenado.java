@@ -12,6 +12,10 @@ public class LegislaturaSenado {
         return num;
     }
 
+    public void setNum(Integer num) {
+        this.num = num.shortValue();
+    }
+
     public void setNum(Short num) {
         this.num = num;
     }

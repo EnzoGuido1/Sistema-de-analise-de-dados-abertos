@@ -16,7 +16,7 @@ public class LegislaturaCamaraDAO extends GenericDAO<LegislaturaCamara, Short> {
     @Override
     public List<LegislaturaCamara> selectAll() throws SQLException {
         ResultSet result;
-        String query = "SELECT * FROM legislatura";
+        String query = "SELECT * FROM leg_camara";
         ArrayList<LegislaturaCamara> entities = new ArrayList<LegislaturaCamara>();
 
         PreparedStatement ps = connection.prepareStatement(query);
@@ -34,7 +34,7 @@ public class LegislaturaCamaraDAO extends GenericDAO<LegislaturaCamara, Short> {
     }
     @Override
     public LegislaturaCamara selectByPrimaryKey(Short key) throws SQLException {
-        String query = "SELECT * FROM legislatura WHERE num = ?";
+        String query = "SELECT * FROM leg_camara WHERE num = ?";
         ResultSet result;
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setShort(1, key);
@@ -52,7 +52,7 @@ public class LegislaturaCamaraDAO extends GenericDAO<LegislaturaCamara, Short> {
     }
     @Override
     public void insert(LegislaturaCamara entity) throws SQLException {
-        String query = "INSERT INTO legislatura (num) VALUES (?)";
+        String query = "INSERT INTO leg_camara (num) VALUES (?)";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setShort(1, entity.getNum());
@@ -63,7 +63,7 @@ public class LegislaturaCamaraDAO extends GenericDAO<LegislaturaCamara, Short> {
     public void update(LegislaturaCamara entity) throws SQLException {}
     @Override
     public void delete(Short primaryKey) throws SQLException {
-        String query = "DELETE FROM legislatura WHERE num = ?";
+        String query = "DELETE FROM leg_camara WHERE num = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setShort(1, primaryKey);

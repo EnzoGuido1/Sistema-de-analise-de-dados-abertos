@@ -31,7 +31,6 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
             v.setVotos_s(result.getShort("votos_s"));
             v.setVotos_n(result.getShort("votos_n"));
             v.setDt_dia(result.getDate("dt_dia"));
-            v.setDt_hora(result.getTimestamp("dt_hora"));
         }
         result.close();
         ps.close();
@@ -56,7 +55,6 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
             v.setVotos_s(result.getShort("votos_s"));
             v.setVotos_n(result.getShort("votos_n"));
             v.setDt_dia(result.getDate("dt_dia"));
-            v.setDt_hora(result.getTimestamp("dt_hora"));
         }
         result.close();
         ps.close();
@@ -65,7 +63,7 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
     }
     @Override
     public void insert(Votacao v) throws SQLException {
-        String query = "INSERT INTO votacao (id, descricao, orgao, aprovacao, votos_s, votos_n, dt_dia, dt_hora) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO votacao (id, descricao, orgao, aprovacao, votos_s, votos_n, dt_dia) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, v.getId());
@@ -75,14 +73,13 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
         ps.setShort(5, v.getVotos_s());
         ps.setShort(6, v.getVotos_n());
         ps.setDate(7, v.getDt_dia());
-        ps.setTimestamp(8, v.getDt_hora());
 
         ps.executeUpdate();
         ps.close();
     }
     @Override
     public void update(Votacao v) throws SQLException {
-        String query = "UPDATE votacao SET descricao = ?, orgao = ?, aprovacao = ?, votos_s = ?, votos_n = ?, dt_dia = ?, dt_hora = ? WHERE id = ?";
+        String query = "UPDATE votacao SET descricao = ?, orgao = ?, aprovacao = ?, votos_s = ?, votos_n = ?, dt_dia = ? WHERE id = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, v.getDescricao());
@@ -91,8 +88,7 @@ public class VotacaoDAO extends GenericDAO<Votacao, String> {
         ps.setShort(4, v.getVotos_s());
         ps.setShort(5, v.getVotos_n());
         ps.setDate(6, v.getDt_dia());
-        ps.setTimestamp(7, v.getDt_hora());
-        ps.setString(8, v.getId());
+        ps.setString(7, v.getId());
 
         ps.executeUpdate();
         ps.close();

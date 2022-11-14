@@ -2,7 +2,6 @@ package br.uel.bd1.dadosparlamentares.dao;
 
 import br.uel.bd1.dadosparlamentares.util.CombinedKey;
 import br.uel.bd1.dadosparlamentares.model.PoliticoPropoe;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

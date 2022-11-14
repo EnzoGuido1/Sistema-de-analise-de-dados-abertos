@@ -15,7 +15,7 @@ public class DeputadoBusiness extends GenericBusiness<Deputado> {
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
                 new NotNull(new ParseLong()),
-                new NotNull(new ParseInt())
+                new NotNull(new ParseLong())
         };
 
         return processors;

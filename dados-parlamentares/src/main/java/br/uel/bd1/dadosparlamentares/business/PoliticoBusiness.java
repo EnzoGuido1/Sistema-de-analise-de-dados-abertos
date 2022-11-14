@@ -15,10 +15,10 @@ public class PoliticoBusiness extends GenericBusiness<Politico> {
     @Override
     protected CellProcessor[] getProcessors() {
         final CellProcessor[] processors = new CellProcessor[] {
-                new NotNull(new StrMinMax(0, 6)),
-                new NotNull(new ParseLong()),
-                new Optional(),
-                new Optional()
+                new NotNull(new StrMinMax(0, 6)),       // sigla
+                new NotNull(new ParseLong()),           // cpf_id
+                new Optional(),                         // nome
+                new Optional()                          // sobrenome
         };
 
         return processors;
