@@ -18,11 +18,6 @@ public class PgConnectionFactory extends ConnectionFactory {
     public Connection getConnection() throws IOException, SQLException, ClassNotFoundException {
         Connection connection = null;
 
-//        host = "25.60.189.91";
-//        port = "5432";
-//        database = "dados_parlamentares";
-//        user = "postgres";
-//        password = "pg12345";
         Class.forName("org.postgresql.Driver");
         loadProperties();
         String url = "jdbc:postgresql://" + host + ":" + port + "/" + database;
