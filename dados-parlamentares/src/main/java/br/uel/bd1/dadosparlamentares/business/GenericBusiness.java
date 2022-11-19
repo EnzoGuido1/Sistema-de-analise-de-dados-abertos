@@ -8,6 +8,10 @@ import org.supercsv.prefs.CsvPreference;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Properties;
 
 public abstract class GenericBusiness<T> {
     protected T bean;
@@ -19,7 +23,22 @@ public abstract class GenericBusiness<T> {
         this.beanClass = t;
     }
 
-    public void insertFromCsv(String filename) {
+    protected void loadProperties() throws IOException, SQLException {
+        String path = GenericBusiness.class.getClassLoader().getResource("logs").getPath();
+        Properties properties = dao.getConnection().getClientInfo();
+        String server = properties.getProperty("database");
+        File outputLog = new File(path + File.pathSeparator + server + ".log");
+        outputLog.createNewFile();
+        FileOutputStream oFile = new FileOutputStream(outputLog);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String text = formatter.format(now) + " - Table " + beanClass.getName() + " was updated.\n";
+        oFile.write(text.getBytes());
+    }
+
+    public void insertFromCsv(String filename) throws SQLException, IOException {
+
+        loadProperties();
 
         try(ICsvBeanReader beanReader
                     = new CsvBeanReader(new FileReader(filename), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE)) {
@@ -55,6 +74,8 @@ public abstract class GenericBusiness<T> {
     }
 
     public void insertFromCsv(InputStream fileStream) throws IOException, SQLException {
+
+        loadProperties();
 
         ICsvBeanReader beanReader
                 = new CsvBeanReader(new InputStreamReader(fileStream), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE);
