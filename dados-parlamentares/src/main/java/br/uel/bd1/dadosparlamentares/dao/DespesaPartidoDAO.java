@@ -1,7 +1,7 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
-import br.uel.bd1.dadosparlamentares.util.CombinedKey;
 import br.uel.bd1.dadosparlamentares.model.DespesaPartido;
+import br.uel.bd1.dadosparlamentares.util.CombinedKey;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,7 +1,6 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
 import br.uel.bd1.dadosparlamentares.model.Deputado;
-import br.uel.bd1.dadosparlamentares.model.Politico;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

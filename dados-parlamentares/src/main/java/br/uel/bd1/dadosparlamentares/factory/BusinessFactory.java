@@ -2,6 +2,7 @@ package br.uel.bd1.dadosparlamentares.factory;
 
 import br.uel.bd1.dadosparlamentares.business.*;
 import br.uel.bd1.dadosparlamentares.model.*;
+
 import java.io.IOException;
 import java.sql.SQLException;
 

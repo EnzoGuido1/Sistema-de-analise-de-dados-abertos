@@ -10,11 +10,6 @@ import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.file.UploadedFile;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
 
 @Named
 @RequestScoped

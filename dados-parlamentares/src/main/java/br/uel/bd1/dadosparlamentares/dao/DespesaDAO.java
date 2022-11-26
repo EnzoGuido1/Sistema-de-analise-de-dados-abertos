@@ -1,13 +1,9 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
-import br.uel.bd1.dadosparlamentares.util.CombinedKey;
 import br.uel.bd1.dadosparlamentares.model.Despesa;
+import br.uel.bd1.dadosparlamentares.util.CombinedKey;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Date;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +67,7 @@ public class DespesaDAO extends GenericDAO<Despesa, CombinedKey<Long, Long>>{
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setLong(1, d.getDocumento());
         ps.setLong(2, d.getFor_cpf_cnpj());
-        ps.setString(3, d.getValor());
+        ps.setDouble(3, d.getValor());
         ps.setDate(4, new Date(d.getData().getTime()));
         ps.setString(5, d.getTipo());
         ps.setString(6, d.getDetalhamento());
@@ -84,7 +80,7 @@ public class DespesaDAO extends GenericDAO<Despesa, CombinedKey<Long, Long>>{
         String query = "UPDATE despesa SET valor = ?, data = ?, tipo = ?, detalhamento = ? WHERE documento = ? and for_cpf_cnpj = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, d.getValor());
+        ps.setDouble(1, d.getValor());
         ps.setDate(2, new Date(d.getData().getTime()));
         ps.setString(3, d.getTipo());
         ps.setString(4, d.getDetalhamento());

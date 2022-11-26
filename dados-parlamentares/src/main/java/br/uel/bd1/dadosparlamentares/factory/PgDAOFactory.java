@@ -1,6 +1,8 @@
 package br.uel.bd1.dadosparlamentares.factory;
 
 import br.uel.bd1.dadosparlamentares.dao.*;
+import br.uel.bd1.dadosparlamentares.dao.relatorios.RelatoriosDAO;
+
 import java.sql.Connection;
 
 public class PgDAOFactory extends DAOFactory {
@@ -42,6 +44,12 @@ public class PgDAOFactory extends DAOFactory {
     @Override
     public SenadorDAO getSenadorDAO() { return new SenadorDAO(connection); }
     @Override
-    public VotacaoDAO getVotacaoDAO() { return new VotacaoDAO(connection); }
+    public VotacaoDAO getVotacaoDAO() {
+        return new VotacaoDAO(connection);
+    }
+    @Override
+    public RelatoriosDAO getRelatoriosDAO() {
+        return new RelatoriosDAO(connection);
+    }
 }
 

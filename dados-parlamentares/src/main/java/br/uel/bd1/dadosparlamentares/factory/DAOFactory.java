@@ -1,6 +1,7 @@
 package br.uel.bd1.dadosparlamentares.factory;
 
 import br.uel.bd1.dadosparlamentares.dao.*;
+import br.uel.bd1.dadosparlamentares.dao.relatorios.RelatoriosDAO;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -95,4 +96,6 @@ public abstract class DAOFactory implements AutoCloseable {
     public abstract ProposicaoDAO getProposicaoDAO();
     public abstract SenadorDAO getSenadorDAO();
     public abstract VotacaoDAO getVotacaoDAO();
+
+    public abstract RelatoriosDAO getRelatoriosDAO();
 }
