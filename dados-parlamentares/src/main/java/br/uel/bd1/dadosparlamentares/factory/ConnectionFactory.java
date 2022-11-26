@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 
 public abstract class ConnectionFactory {
@@ -26,7 +27,7 @@ public abstract class ConnectionFactory {
                 instance = new PgConnectionFactory();
             }
             else {
-                throw new RuntimeException("Servidor de banco de dados não suportado.");
+                throw new InvalidPropertiesFormatException("Servidor especificado não é suportado");
             }
             instance = new PgConnectionFactory();
         }

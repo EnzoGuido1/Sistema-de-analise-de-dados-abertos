@@ -39,7 +39,6 @@ public abstract class GenericBusiness<T> {
     }
 
     public void insertFromCsv(String filename) {
-
         try(ICsvBeanReader beanReader
                     = new CsvBeanReader(new FileReader(filename), CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE)) {
 
@@ -81,7 +80,6 @@ public abstract class GenericBusiness<T> {
     }
 
     public void insertFromCsv(InputStream fileStream) {
-
         try(ICsvBeanReader beanReader = new CsvBeanReader(new InputStreamReader(fileStream),
                 CsvPreference.EXCEL_NORTH_EUROPE_PREFERENCE)) {
 
