@@ -1,7 +1,6 @@
 package br.uel.bd1.dadosparlamentares.business;
 
 import br.uel.bd1.dadosparlamentares.dao.GenericDAO;
-import br.uel.bd1.dadosparlamentares.model.Deputado;
 import br.uel.bd1.dadosparlamentares.model.Fornecedor;
 import org.supercsv.cellprocessor.Optional;
 import org.supercsv.cellprocessor.ParseLong;
@@ -11,6 +10,7 @@ import org.supercsv.cellprocessor.ift.CellProcessor;
 public class FornecedorBusiness extends GenericBusiness<Fornecedor> {
     public FornecedorBusiness(GenericDAO<Fornecedor, ?> dao, Class<Fornecedor> t) {
         super(dao, t);
+        this.table = "fornecedor";
     }
     @Override
     protected CellProcessor[] getProcessors() {

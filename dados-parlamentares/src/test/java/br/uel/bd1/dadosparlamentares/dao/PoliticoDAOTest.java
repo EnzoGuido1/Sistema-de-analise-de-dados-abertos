@@ -4,6 +4,7 @@ import br.uel.bd1.dadosparlamentares.factory.DAOFactory;
 import br.uel.bd1.dadosparlamentares.model.Politico;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;

@@ -2,13 +2,9 @@ package br.uel.bd1.dadosparlamentares.dao;
 
 import br.uel.bd1.dadosparlamentares.model.Legislatura;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
 public class LegislaturaDAO extends GenericDAO<Legislatura, Integer> {
     public LegislaturaDAO(Connection connection) {

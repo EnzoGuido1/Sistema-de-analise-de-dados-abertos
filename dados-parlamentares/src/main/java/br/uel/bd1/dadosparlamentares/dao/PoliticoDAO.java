@@ -1,14 +1,13 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
+import br.uel.bd1.dadosparlamentares.model.Politico;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.String;
-
-import br.uel.bd1.dadosparlamentares.model.Politico;
 
 public class PoliticoDAO extends GenericDAO<Politico, Long> {
     public PoliticoDAO(Connection connection) {

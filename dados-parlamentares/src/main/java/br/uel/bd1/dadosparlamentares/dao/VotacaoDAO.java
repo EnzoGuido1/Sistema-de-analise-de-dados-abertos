@@ -1,7 +1,6 @@
 package br.uel.bd1.dadosparlamentares.dao;
 
 import br.uel.bd1.dadosparlamentares.model.Votacao;
-import org.postgresql.util.PGTimestamp;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

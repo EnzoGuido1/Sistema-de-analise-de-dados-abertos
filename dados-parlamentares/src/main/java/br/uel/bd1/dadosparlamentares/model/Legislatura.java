@@ -1,6 +1,7 @@
 package br.uel.bd1.dadosparlamentares.model;
 
 import jakarta.validation.constraints.NotNull;
+
 import java.util.Date;
 
 public class Legislatura {

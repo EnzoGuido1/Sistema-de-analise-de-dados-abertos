@@ -2,11 +2,7 @@ package br.uel.bd1.dadosparlamentares.dao;
 
 import br.uel.bd1.dadosparlamentares.model.Proposicao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Date;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 

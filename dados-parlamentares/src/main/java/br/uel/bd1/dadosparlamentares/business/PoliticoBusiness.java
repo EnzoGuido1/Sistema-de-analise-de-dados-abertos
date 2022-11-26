@@ -11,6 +11,7 @@ import org.supercsv.cellprocessor.ift.CellProcessor;
 public class PoliticoBusiness extends GenericBusiness<Politico> {
     public PoliticoBusiness(GenericDAO<Politico, ?> dao, Class<Politico> t) {
         super(dao, t);
+        this.table = "politico";
     }
     @Override
     protected CellProcessor[] getProcessors() {
