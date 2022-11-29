@@ -6,8 +6,44 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Relatorios</title>
+
+    <style type="">
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    
 </h:head>
+
 <h:body>
-    <p:graphicImage value="#{relatoriosController.getGrafico(1)}" stream="false"/>
+    <div class="row">
+        <div class="column">
+            <img src="graph1.png" alt="Snow" style="width:100%" />
+        </div>
+        <div class="column">
+            <img src="graph2.png" alt="Forest" style="width:100%" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="graph3.png" alt="Mountains" style="width:100%" />
+        </div>
+        <div class="column">
+            <img src="graph4.png" alt="Mountains" style="width:100%" />
+        </div>
+    </div>
 </h:body>
 </html>
