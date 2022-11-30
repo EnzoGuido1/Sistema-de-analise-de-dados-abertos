@@ -70,7 +70,11 @@ public class DespesaPoliticoDAO extends GenericDAO<DespesaPolitico, Long> {
         String query = "UPDATE despesa_pol SET pol_cpf_id = ? WHERE documento = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setLong(1, entity.getPol_cpf_id());
+        if(entity.getPol_cpf_id() != null) {
+            ps.setLong(1, entity.getPol_cpf_id());
+        } else {
+            ps.setNull(1, Types.BIGINT);
+        }
         ps.setLong(2, entity.getDocumento());
 
         ps.executeUpdate();

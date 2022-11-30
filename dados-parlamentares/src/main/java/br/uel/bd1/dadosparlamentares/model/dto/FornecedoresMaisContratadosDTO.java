@@ -1,8 +1,8 @@
 package br.uel.bd1.dadosparlamentares.model.dto;
 
 public class FornecedoresMaisContratadosDTO {
-    private Long for_cpf_cnpj,
-                 num_prestacoes;
+    private Long for_cpf_cnpj;
+    private Double num_prestacoes;
 
     public Long getFor_cpf_cnpj() {
         return for_cpf_cnpj;
@@ -12,11 +12,11 @@ public class FornecedoresMaisContratadosDTO {
         this.for_cpf_cnpj = for_cpf_cnpj;
     }
 
-    public Long getNum_prestacoes() {
+    public Double getNum_prestacoes() {
         return num_prestacoes;
     }
 
-    public void setNum_prestacoes(Long num_prestacoes) {
+    public void setNum_prestacoes(Double num_prestacoes) {
         this.num_prestacoes = num_prestacoes;
     }
 }

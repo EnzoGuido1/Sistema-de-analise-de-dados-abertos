@@ -29,21 +29,17 @@
 </h:head>
 
 <h:body>
-    <div class="row">
-        <div class="column">
-            <img src="graph1.png" alt="Snow" style="width:100%" />
-        </div>
-        <div class="column">
-            <img src="graph2.png" alt="Forest" style="width:100%" />
-        </div>
+    <div class="card">
+        <p:chart type="pie" model="#{relatoriosController.numPoliticosPorPartido}"/>
     </div>
-    <div class="row">
-        <div class="column">
-            <img src="graph3.png" alt="Mountains" style="width:100%" />
-        </div>
-        <div class="column">
-            <img src="graph4.png" alt="Mountains" style="width:100%" />
-        </div>
+    <div class="card">
+        <p:chart type="pie" model="#{relatoriosController.numProposicoesPorPolitico}"/>
+    </div>
+    <div class="card">
+        <p:chart type="pie" model="#{relatoriosController.fornecedoresMaisContratados}"/>
+    </div>
+    <div class="card">
+        <p:chart type="pie" model="#{relatoriosController.gastoAnualPorPolitico}"/>
     </div>
 </h:body>
 </html>

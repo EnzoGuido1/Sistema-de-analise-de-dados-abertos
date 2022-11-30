@@ -59,7 +59,7 @@ public class RelatoriosDAO {
         while(results.next()) {
             FornecedoresMaisContratadosDTO dto = new FornecedoresMaisContratadosDTO();
             dto.setFor_cpf_cnpj(results.getLong("for_cpf_cnpj"));
-            dto.setNum_prestacoes(results.getLong("num_prestacoes"));
+            dto.setNum_prestacoes(results.getDouble("num_prestacoes"));
 
             entities.add(dto);
         }
@@ -168,9 +168,9 @@ public class RelatoriosDAO {
         ResultSet results;
         ArrayList<FornecedoresMaisContratadosDTO> entities = new ArrayList<FornecedoresMaisContratadosDTO>();
         final String query =
-                "SELECT for_cpf_cnpj, COUNT(*) AS num_prestacoes " +
-                "FROM despesa " +
-                "GROUP BY for_cpf_cnpj " +
+                "SELECT d.for_cpf_cnpj, SUM(d.valor) AS num_prestacoes " +
+                "FROM despesa d " +
+                "GROUP BY d.for_cpf_cnpj " +
                 "ORDER BY num_prestacoes DESC " +
                 "LIMIT ?";
 
@@ -181,7 +181,7 @@ public class RelatoriosDAO {
         while(results.next()) {
             FornecedoresMaisContratadosDTO dto = new FornecedoresMaisContratadosDTO();
             dto.setFor_cpf_cnpj(results.getLong("for_cpf_cnpj"));
-            dto.setNum_prestacoes(results.getLong("num_prestacoes"));
+            dto.setNum_prestacoes(results.getDouble("num_prestacoes"));
 
             entities.add(dto);
         }
