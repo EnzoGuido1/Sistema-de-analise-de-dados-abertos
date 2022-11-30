@@ -6,8 +6,9 @@ import org.supercsv.exception.SuperCsvConstraintViolationException;
 import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
-
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -23,19 +24,17 @@ public abstract class GenericBusiness<T> {
         this.beanClass = t;
     }
 
-    protected void writeToLog(String desc) throws IOException, SQLException, ClassNotFoundException {
-        String server = dao.getConnection().getCatalog(),
-               path = this.getClass().getResource("/").getPath();
-
-        File outputLog = new File(path + File.pathSeparator + server + ".log");
-        outputLog.createNewFile();
-        FileOutputStream oFile = new FileOutputStream(outputLog);
+    protected void writeToLog(String desc)
+            throws IOException, SQLException, ClassNotFoundException, URISyntaxException {
+        URI path = this.getClass().getClassLoader().getResource("logs/" +
+                dao.getConnection().getCatalog() + ".log").toURI();
+        OutputStream writer = new FileOutputStream(new File(path), true);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
 
         String text = "[" + formatter.format(now) + "] " + desc + "\n";
-        oFile.write(text.getBytes());
+        writer.write(text.getBytes());
     }
 
     public void insertFromCsv(String filename) {
@@ -44,7 +43,8 @@ public abstract class GenericBusiness<T> {
 
             final String[] headers = beanReader.getHeader(true);
             final CellProcessor[] processors = getProcessors();
-            int counter = 0;
+            int insertionCounter = 0,
+                updateCounter = 0;
 
             while(true) {
                 try {
@@ -52,13 +52,13 @@ public abstract class GenericBusiness<T> {
                     if(bean == null)
                         break;
                     dao.insert(bean);
-                    ++counter;
+                    ++insertionCounter;
                 }
                 catch(SQLException e) {
                     if(e.getSQLState().compareTo("23505") == 0) {
                         try {
                             dao.update(bean);
-                            ++counter;
+                            ++updateCounter;
                         }
                         catch(SQLException f) {
                             f.printStackTrace();
@@ -69,9 +69,14 @@ public abstract class GenericBusiness<T> {
                     e.printStackTrace();
                 }
             }
-            writeToLog(counter + " atualizações em " + table);
+            if(insertionCounter > 0) {
+                writeToLog(insertionCounter + " inserções em " + table + "\n");
+            }
+            if(updateCounter > 0) {
+                writeToLog(updateCounter + " atualizações em " + table + "\n");
+            }
         }
-        catch(SQLException | IOException | ClassNotFoundException e) {
+        catch(SQLException | IOException | ClassNotFoundException | URISyntaxException e) {
             e.printStackTrace();
         }
         finally {
@@ -85,7 +90,8 @@ public abstract class GenericBusiness<T> {
 
             final String[] headers = beanReader.getHeader(true);
             final CellProcessor[] processors = getProcessors();
-            int counter = 0;
+            int insertionCounter = 0,
+                    updateCounter = 0;
 
             while (true) {
                 try {
@@ -93,21 +99,26 @@ public abstract class GenericBusiness<T> {
                     if (bean == null)
                         break;
                     dao.insert(bean);
-                    ++counter;
+                    ++insertionCounter;
                 } catch (SQLException e) {
                     if (e.getSQLState().compareTo("23505") == 0) {
                         try {
                             dao.update(bean);
-                            ++counter;
+                            ++updateCounter;
                         } catch (SQLException f) {
                             f.printStackTrace();
                         }
                     }
                 }
-                writeToLog(counter + " atualizações em " + table);
+                if(insertionCounter > 0) {
+                    writeToLog(insertionCounter + " inserções em " + table);
+                }
+                if(updateCounter > 0) {
+                    writeToLog(updateCounter + " atualizações em " + table);
+                }
             }
         }
-        catch(SQLException | IOException | ClassNotFoundException e) {
+        catch(SQLException | IOException | ClassNotFoundException | URISyntaxException e) {
             e.printStackTrace();
         }
         finally {
