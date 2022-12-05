@@ -1,7 +1,5 @@
 package br.uel.bd1.dadosparlamentares.control;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 

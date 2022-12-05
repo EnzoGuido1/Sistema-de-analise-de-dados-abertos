@@ -2,11 +2,7 @@ package br.uel.bd1.dadosparlamentares.dao;
 
 import br.uel.bd1.dadosparlamentares.model.Proposicao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Date;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +61,7 @@ public class ProposicaoDAO extends GenericDAO<Proposicao, Long> {
         ps.setLong(1, p.getId());
         ps.setString(2, p.getDescricao());
         ps.setString(3, p.getEmenta());
-        ps.setDate(4, new Date(p.getData().getTime()));
+        ps.setDate(4, p.getData() != null ? new Date(p.getData().getTime()) : null);
 
         ps.executeUpdate();
         ps.close();
@@ -77,7 +73,7 @@ public class ProposicaoDAO extends GenericDAO<Proposicao, Long> {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, p.getDescricao());
         ps.setString(2, p.getEmenta());
-        ps.setDate(3, new Date(p.getData().getTime()));
+        ps.setDate(3, p.getData() != null ? new Date(p.getData().getTime()) : null);
         ps.setLong(4, p.getId());
 
         ps.executeUpdate();

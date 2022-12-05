@@ -9,6 +9,7 @@ import org.supercsv.cellprocessor.ift.CellProcessor;
 public class BlocoBusiness extends GenericBusiness<Bloco> {
     public BlocoBusiness(GenericDAO<Bloco, ?> dao, Class<Bloco> t) {
         super(dao, t);
+        this.table = "bloco";
     }
     @Override
     protected CellProcessor[] getProcessors() {

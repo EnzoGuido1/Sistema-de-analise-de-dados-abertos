@@ -25,6 +25,14 @@ public abstract class GenericDAO<T, K> {
         }
     }
 
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
     public abstract List<T> selectAll()                      throws SQLException;
     public abstract T selectByPrimaryKey(K primaryKey)       throws SQLException;
     public abstract void insert(T t)                         throws SQLException;

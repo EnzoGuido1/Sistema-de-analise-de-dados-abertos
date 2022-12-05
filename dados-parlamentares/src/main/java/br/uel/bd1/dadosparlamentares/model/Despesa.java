@@ -1,12 +1,9 @@
 package br.uel.bd1.dadosparlamentares.model;
 
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Named;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.postgresql.util.PGmoney;
+
 import java.util.Date;
-import java.sql.SQLException;
 
 public class Despesa {
     @NotNull
@@ -17,7 +14,7 @@ public class Despesa {
     private String tipo;
     @Size(max=200)
     private String detalhamento;
-    private PGmoney valor;
+    private Double valor;
 
     public Long getDocumento() {
         return documento;
@@ -59,16 +56,19 @@ public class Despesa {
         this.detalhamento = detalhamento;
     }
 
-    public String getValor() {
-        return valor.getValue();
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 
     public void setValor(String valor) {
         try {
-            this.valor = new PGmoney(valor);
-        }
-        catch(SQLException e) {
-            throw new RuntimeException(e);
+            this.valor = Double.valueOf(valor);
+        } catch (NumberFormatException e) {
+            this.valor = Double.valueOf(0.0);
         }
     }
 }
